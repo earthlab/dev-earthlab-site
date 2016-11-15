@@ -22,10 +22,10 @@ open-science:
   - title: Open Science
     children:
       - title: "Activity Overview"
-        url: /data-lessons/intro-open-science/
+        url: /tutorials/intro-open-science/
       - title: "Intro to Reproducibility"
-        url: https://lwasser.github.io/class-activities/slide-shows/1_intro-reprod-science/#1
+        url: /slide-shows/1_intro-reprod-science/
       - title: "File Naming 101"
-        url: https://lwasser.github.io/class-activities/slide-shows/1_intro-reprod-science/#1
+        url: /slide-shows/2-file-naming-jenny-bryan/
       - title: "Teaching Notes"
         url: /open-science/2-instructor-notes/
