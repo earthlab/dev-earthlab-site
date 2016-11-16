@@ -8,12 +8,7 @@ build:
 		git clone $(GIT_PATH)
 		
 		# convert tutorials to markdown
-		python convert_notebooks.py $(TUTORIAL_FOLDER) _posts
-		# remove duplicates
-		bash delete_duplicates.sh
-
-		# build the site
-		bundle exec jekyll build
+		Rscript --vanilla processing-code/generate_posts.R
 
 		# clean up
 		rm -rf $(TUTORIAL_FOLDER)
