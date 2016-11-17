@@ -3,7 +3,9 @@ layout: single
 authors: [Naupaka Zimmerman, Leah A. Wasser]
 title: 'Instructor Notes'
 sidebar:
-  nav: 'open-science'
+  nav:
+class-lesson: ['open-science']
+nav-title: 'Instructor Notes'
 author_profile: false
 comments: false
 ---
@@ -19,9 +21,9 @@ management and organization in support of reproducible open science.
 Students should review the following presentation PRIOR to participating in the
 activity.
 
-<a href="{{ site.baseurl }}/slide-shows/1_intro-reprod-science/" class="btn btn--info" target="_blank">Introduction to Reproducible Science Slide Show </a>
+* <a href="{{ site.baseurl }}/slide-shows/1_intro-reprod-science/" target="_blank">Introduction to Reproducible Science Slide Show </a>
 
-<a href="{{ site.baseurl }}/slide-shows/2-file-naming-jenny-bryan/" class="btn btn--info" target="_blank">File Naming 101</a>
+* <a href="{{ site.baseurl }}/slide-shows/2-file-naming-jenny-bryan/" target="_blank">File Naming 101</a>
 
 
 [Download Lesson Data](https://ndownloader.figshare.com/files/6433086
