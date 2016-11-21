@@ -223,13 +223,18 @@ collections:
     title: Open Science
   slide-shows:
     output: true
-  issue_002:
+  tools:
     output: true
-    permalink: /:title/:path
-    title: Talking Heads
-    date: 2015-08-01
-
+    permalink: /:collection/:path/
+    title: Tools
+  events:
+    output: true
+    permalink: /:collection/:path/
+    title: Events
 
 # Slideshow stuff
 # Format for the slides, can be either 16:9 or 4:3
 format: '4:3'
+
+# Publish posts and events that are post-dated
+future: true
