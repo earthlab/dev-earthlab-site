@@ -15,3 +15,9 @@ Presentations created using markdown.
 <h3><a href="{{ slides.url}}">{{ slides.title }}</a></h3>
 
 {% endfor %}
+
+## testing another collection
+{% for lidar in site.veg-structure-lidar %}
+<h3><a href="{{ lidar.url}}">{{ lidar.title }}</a></h3>
+
+{% endfor %}

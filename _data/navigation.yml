@@ -4,6 +4,9 @@ main:
   - title: "Tutorials"
     url: /tutorials/
 
+  - title: "Course Materials"
+    url: /course-materials/
+
   - title: "Tools"
     url: /tools/
 
@@ -13,7 +16,7 @@ main:
   - title: "About"
     url: /about/
 
-  - title: "CU Earth Lab Home"
+  - title: "Earth Lab CU"
     url: http://www.colorado.edu/earthlab
 
 
@@ -23,9 +26,11 @@ open-science:
     children:
       - title: "Activity Overview"
         url: /tutorials/intro-open-science/
+      - title: "Teaching Notes"
+        url: /open-science/2-instructor-notes/
+  - title: Slide Shows
+    children:
       - title: "Intro to Reproducibility"
         url: /slide-shows/1_intro-reprod-science/
       - title: "File Naming 101"
         url: /slide-shows/2-file-naming-jenny-bryan/
-      - title: "Teaching Notes"
-        url: /open-science/2-instructor-notes/

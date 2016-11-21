@@ -1,29 +1,13 @@
 ---
-layout: post
-title: "Characterize Vegetation Structure Using Lidar Data- #WorkWithData"
-date: 2016-04-05
+layout: single
+title: 'Characterize Vegetation Structure Using Lidar Data'
 authors: [Leah A. Wasser]
-dateCreated: 2016-04-05
-lastModified: 2016-04-05
-categories: []
-category: 
-tags: []
-mainTag:
-scienceThemes: [vegetation]
-description: "The overview page I used at CU 5 April 2016."
-code1:
-image:
-  feature: TeachingModules.jpg
-  credit: A National Ecological Observatory Network (NEON) - Teaching Module
-  creditlink: http://www.neoninc.org
-permalink: /lidar-veg-structure/
-code1: 
+excerpt: "The overview page I used at CU 5 April 2016."
+author_profile: false
 comments: false
 ---
 
-{% include _toc.html %}
-
-# 
+#
 
 
 ### How LiDAR Works ##
@@ -36,8 +20,7 @@ comments: false
 
 Scientists often need to characterize vegetation over large regions. We use tools that can estimate key characteristics over large areas because we donât have the resources to measure each and every tree. These tools often use remote methods. Remote sensing means that we arenât actually physically measuring things with our hands, we are using sensors which capture information about a landscape and record things that we can use to estimate conditions and characteristics.
 
-
-{% include _images_nolink.html url="http://neoninc.github.io/NEON-Data-Skills-Development/images/ScalingTrees_NatGeo.jpg" description="Conventional on the ground methods to measure trees are resource intensive and limit the amount of vegetation that can be characterized! Photo: National Geographic" %}
+ url="http://neoninc.github.io/NEON-Data-Skills-Development/images/ScalingTrees_NatGeo.jpg" description="Conventional on the ground methods to measure trees are resource intensive and limit the amount of vegetation that can be characterized! Photo: National Geographic" 
 
 To measure vegetation across large areas we need remote sensing methods that can take many measurements, quickly using automated sensors. These measurements can  be used to estimate forest structure across larger areas. LiDAR, or light detection ranging (sometimes also referred to as active laser scanning) is one remote sensing method that can be used to map structure including vegetation height, density and other characteristics across a region. LiDAR directly measures the height and density of vegetation on the ground making it an ideal tool for scientists studying vegetation over large areas.
 
@@ -69,14 +52,13 @@ A LiDAR system measures the time it takes for emitted light to travel  to the gr
     <a href="http://neonhighered.org/3d/SJER_DSM_3d.html"><img src="{{ site.baseurl }}/images/lidar/dsm.png"></a>
     <a href="http://neonhighered.org/3d/SJER_DTM_3d.html"><img src="{{ site.baseurl }}/images/lidar/dem.png"></a>
     <a href="http://neonhighered.org/3d/SJER_CHM_3d.html" target="_blank"><img src="{{ site.baseurl }}/images/lidar/chm.png"></a>
-    
+
     <figcaption> 3d models of a: LEFT: lidar derived digital surface model (DSM) , MIDDLE: Digital Elevation Model (DEM) and RIGHT: Canopy Height Model (CHM). Click on the images to view interactive 3d models. </figcaption>
 </figure>
 
- 
+
 ## CHM vs InSitu Differences Differences
 
 <iframe width="700" height="800" frameborder="0" scrolling="no" src="https://plot.ly/~leahawasser/24.embed"></iframe>
 
 <iframe width="700" height="700" frameborder="0" scrolling="no" src="https://plot.ly/~leahawasser/158.embed"></iframe>
-
