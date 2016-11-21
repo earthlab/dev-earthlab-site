@@ -45,7 +45,7 @@
 
               {% for slides in site.slide-shows %}
                 {% if slides.class-lesson == page.class-lesson %}
-                  <li><a href="{{ slides.url}}" target='_blank'>{{ slides.title }} </a></li>
+                  <li><a href="{{ site.url }}{{ site.baseurl }}{{ slides.url}}" target='_blank'>{{ slides.title }} </a></li>
                 {% endif %}
               {% endfor %}
             </ul>
