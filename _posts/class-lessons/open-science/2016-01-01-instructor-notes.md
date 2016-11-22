@@ -6,6 +6,7 @@ sidebar:
   nav:
 class-lesson: ['open-science']
 nav-title: 'Instructor Notes'
+excerpt: 'Instructor notes for the open science lesson.'
 author_profile: false
 comments: false
 ---

@@ -37,5 +37,5 @@ applied science.
 Questions?
 This site is maintained by:
 
-* Maxwell Joseph, Director - Analytics Hub, EarthLab @mxwlj
+* Max Joseph, Director - Analytics Hub, EarthLab @mxwlj
 * Leah Wasser, Director - Earth Analytics Education Initiative, EarthLab @leahawasser
