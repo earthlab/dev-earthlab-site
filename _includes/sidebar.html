@@ -60,7 +60,7 @@
 {% endif %}
 
 
-{% if page.lang or page.language %}
+{% if page.lang or page.language or page.library %}
 <div class="sidebar sticky">
   <nav class="nav__list">
     <ul>
@@ -77,7 +77,13 @@
           	{% endif %}
           {% endfor %}
             {% if page.language == member.lang %}
+            
+              {% if page.library %}
+              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
+              {% else %}
               <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }} class='active' >{{ member.lang }} ({{ counter }})</a></li>
+              {% endif %}
+
               {% else %}
               <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
             {% endif %}
@@ -89,25 +95,29 @@
 <!-- list tutorials by library -->
 
 {% unless page.layout contains 'single' %}
-{% for member in site.data.libs %}
+  {% for member in site.data.libs %}
+    {% if page.language contains member.lang %}
+      <ul>
+        <li><span class="nav__sub-title">{{ member.lang }} library</span>
+          <ul>
+        {% for lib in member.libs %}
+          {% assign counter = 0 %}
+       <!-- this code counts the number of posts associated with the member -->
+            {% for post in site.posts %}
+              {% if post.lib contains lib %}
+              {% assign counter = counter | plus: 1 %}
+              {% endif %}
+            {% endfor %}
 
-{% if page.language contains member.lang %}
-<ul>
-  <li><span class="nav__sub-title">{{ member.lang }} library</span>
-    <ul>
-  {% for lib in member.libs %}
-    {% assign counter = 0 %}
- <!-- this code counts the number of posts associated with the member -->
-      {% for post in site.posts %}
-        {% if post.lib contains lib %}
-        {% assign counter = counter | plus: 1 %}
-        {% endif %}
-      {% endfor %}
-      <li><a href="{{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}/{{ lib }}">{{ lib }} ({{ counter }})</a></li>
+            {% if page.library == lib %}
+            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}/{{ lib }} class='active'>{{ lib }} ({{ counter }})</a></li>
+            {% else %}
+            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}/{{ lib }}>{{ lib }} ({{ counter }})</a></li>
+            {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
   {% endfor %}
-</ul>
-  {% endif %}
-{% endfor %}
 {% endunless %}
 <!-- end language side bar nav -->
 </nav>

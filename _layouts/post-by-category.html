@@ -45,15 +45,26 @@ layout: default
 
           <!-- Only list posts where language = page.lang -->
           {% for post in site.posts %}
-            {% if post.lang contains page.language %}
-              <h3><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h3>
-              {{ post.excerpt }}
+            {% if page.library %}
+              {% if post.lib contains page.library %}
+                <h3><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h3>
+                {{ post.excerpt }}
+              {% endif %}
+            {% else %}
+            {% if page.language %}
+             {% if post.lang contains page.language %}
+               <h3><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h3>
+               {{ post.excerpt }}
+             {% endif %}
+
+            {% endif %}
             {% endif %}
           {% endfor %}
 
           {% else %}
             {% for post in site.categories.[page.category] %}
           <!-- List all posts in the page category  -->
+          <!-- Somehow loop through each class lesson and count - right now i'm not including category on series pages -->
 
               <h3><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h3>
               {{ post.excerpt }}
