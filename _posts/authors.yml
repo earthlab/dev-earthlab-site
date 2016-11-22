@@ -1,7 +1,3 @@
-- name: Author Two
-  slug: author-two
-- name: Leah A. Wasser
-  slug: leah-a.-wasser
 - name: Leah Wasser
   slug: leah-wasser
 - name: Matt Oakley
@@ -16,4 +12,3 @@
   slug: reproducible-science-curriculum-community
 - name: Zach Schira
   slug: zach-schira
-

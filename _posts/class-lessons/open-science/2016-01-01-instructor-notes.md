@@ -1,6 +1,6 @@
 ---
 layout: single
-authors: [Naupaka Zimmerman, Leah A. Wasser]
+authors: [Naupaka Zimmerman, Leah Wasser]
 title: 'Instructor Notes'
 sidebar:
   nav:

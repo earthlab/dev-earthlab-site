@@ -1,6 +1,6 @@
 ---
 layout: single
-authors: [Naupaka Zimmerman, Leah A. Wasser, Reproducible Science Curriculum Community]
+authors: [Naupaka Zimmerman, Leah Wasser, Reproducible Science Curriculum Community]
 category: [course-materials]
 tags: [class-lesson]
 title: 'Open Science Data Intensive University Classroom Activity'
