@@ -5,7 +5,6 @@ title: "Data Intensive Course Lab Materials & Courses"
 permalink: /course-materials/
 comments: false
 author_profile: false
-lang: []
 ---
 
 ## Course Materials
