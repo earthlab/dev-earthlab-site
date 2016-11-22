@@ -7,3 +7,5 @@
     - raster
     - rhdf5
     - base
+- lang: javascript
+  libs:
