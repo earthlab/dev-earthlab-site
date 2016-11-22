@@ -5,6 +5,6 @@ title: "Python Based Data Intensive Tutorials"
 permalink: tutorials/software/python/
 comments: false
 author_profile: false
-language: python
+language: 'python'
 langSide: true
 ---
