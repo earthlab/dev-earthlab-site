@@ -2,11 +2,12 @@
 layout: single
 authors: [Naupaka Zimmerman, Leah Wasser]
 title: 'Instructor Notes'
+category: [course-materials]
 sidebar:
   nav:
-class-lesson: ['open-science']
 nav-title: 'Instructor Notes'
 excerpt: 'Instructor notes for the open science lesson.'
+class-lesson: ['intro-open-science']
 author_profile: false
 comments: false
 ---

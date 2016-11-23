@@ -40,7 +40,7 @@
         </ul>
 
         <ul>
-          <li><span class="nav__sub-title">Slide Shows </span>
+          <li><span class="nav__sub-title">Slide Shows</span>
             <ul>
 
               {% for slides in site.slide-shows %}
@@ -77,7 +77,7 @@
           	{% endif %}
           {% endfor %}
             {% if page.language == member.lang %}
-            
+
               {% if page.library %}
               <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
               {% else %}

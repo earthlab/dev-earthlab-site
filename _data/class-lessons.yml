@@ -1,2 +1,6 @@
-- name: Open Science
-  slug: open-science
+- name: 'Introduction to Open Science Teaching Activity'
+  slug: 'intro-open-science'
+  description: 'A hands-on activity where students review a project for
+  readability, organization, etc and identify key elements that would
+  make it more usable and readily reproducible.'
+  url:

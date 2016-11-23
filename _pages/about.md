@@ -8,17 +8,17 @@ permalink: /about/
 ---
 
 This site hosts resources developed by the Earth Lab team at University of Colorado,
-Boulder. This website contains data, code tutorials, course materials and blog
-posts related to our work. Most of the tutorials are aimed at building `R` and
-`Python` skills relevant to working with Earth analytics, including geospatial,
-social, biological, and earth systems data. The course materials will focus on
-a suite of topics including:
+Boulder. This website contains data, code tutorials, data-intensive course
+materials and blog posts related to our work. Most of the
+[data tutorials]({{ site.url }}{{ site.baseurl }}/tutorials/)
+building `R` and `Python` skills relevant to earth systems analytics, including geospatial,
+social, biological, and earth systems data. The [data-intensive course materials]({{ site.url }}{{ site.baseurl }}/course-materials/) focus on a suite of topics including:
 
-* geospatial analysis
-* open, reproducible Science
-* spatio temporal data
-* heterogeneous data structures
-* remote sensing
+* Geospatial analysis
+* Open, reproducible science
+* Spatio-temporal data
+* Heterogeneous data structures
+* Remote sensing
 
 
 
@@ -37,5 +37,5 @@ applied science.
 Questions?
 This site is maintained by:
 
-* Max Joseph, Director - Analytics Hub, EarthLab @mxwlj
-* Leah Wasser, Director - Earth Analytics Education Initiative, EarthLab @leahawasser
+* Max Joseph, Director - Analytics Hub, EarthLab <a href="http://twitter.com/mxwlj" class="btn btn--twitter"><i class="fa fa-twitter"></i>@mxwlj</a>
+* Leah Wasser, Director - Earth Analytics Education Initiative, EarthLab <a href="http://twitter.com/leahawasser" class="btn btn--twitter"><i class="fa fa-twitter"></i>@leahawasser</a>
