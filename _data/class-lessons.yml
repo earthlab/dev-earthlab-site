@@ -4,6 +4,7 @@
   readability, organization, etc and identify key elements that would
   make it more usable and readily reproducible.'
   url:
+  active: true
 
 - name: 'Explore Vegetation Structure Using Light Detection and Ranging (Lidar) Data'
   slug: 'veg-structure-lidar'
@@ -11,3 +12,4 @@
   comparisons between lidar and in situ (field) measured tree height to better understand
   uncertainty and associated differences between measurements.'
   url:
+  active: false
