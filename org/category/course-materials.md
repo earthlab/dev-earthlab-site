@@ -13,6 +13,7 @@ author_profile: false
 Course materials and labs that focus on computational approaches.
 
 {% for member in site.data.class-lessons %}
+{% if member.active %}
 <div class="list__item">
   <article class="archive__item" >
   <h2 class="archive__item-title">
@@ -34,4 +35,5 @@ Course materials and labs that focus on computational approaches.
   <p class="page__meta">lessons: {{ counter }}, presentations {{ slideCounter }}</p>
   </article>
 </div>
+{% endif %}
 {% endfor %}
