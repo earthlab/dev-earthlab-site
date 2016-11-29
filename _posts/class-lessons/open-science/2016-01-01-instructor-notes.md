@@ -10,6 +10,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
+order: 2
 ---
 
 ## About
