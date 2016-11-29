@@ -3,7 +3,7 @@
   description: 'A hands-on activity where students review a project for
   readability, organization, etc and identify key elements that would
   make it more usable and readily reproducible.'
-  authors: ['Leah Wasser']
+  authors: ['Naupaka Zimmerman','Leah Wasser']
   url:
   active: true
   dateModified: 2016-11-25
@@ -15,13 +15,15 @@
   uncertainty and associated differences between measurements.'
   authors: ['Leah Wasser']
   url:
-  active: true
+  active: false
   dateModified: 2016-11-25
 
 - name: 'Intro to Spatial Data in R'
   slug: 'intro-spatial-data-r'
-  description: 'Description here'
+  description: 'These lessons overview the key concepts that you need to understand
+  to work with spatial data in R. These same concepts apply to python and other languages
+  but all code examples use R. '
   authors: ['Leah Wasser']
   url:
-  active: true
+  active: false
   dateModified: 2016-11-25
