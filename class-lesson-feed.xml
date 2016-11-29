@@ -19,20 +19,21 @@ layout:
       <webMaster> {{ site.author.email }} ({{ site.author.name }})</webMaster>
 
 
-
-
- {% for post in site.tags.class-lesson %}
+      {% for member in site.data.class-lessons %}
+      {% if member.active %}
       <item>
-               <title>{{ post.title | cdata_escape }}</title>
-               <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
-               <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ post.url }}</guid>
-               <description>{{ post.excerpt | xml_escape }}</description>
-                 <author>{{ site.author.email }} ({{ post.authors | join: ', ' }})</author>
-
-               <category>{{ post.categories }}</category>
-               <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+               <title>{{ member.name | cdata_escape }}</title>
+               <link>{{ site.url }}{{ site.baseurl }}course-materials/{{ member.slug }}</link>
+               <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}course-materials/{{ member.slug }}</guid>
+               <description>{{ member.description | xml_escape }}</description>
+               <author>{{ site.author.email }} ({{ member.authors | join: ', ' }})</author>
+               <pubDate>{{ member.dateModified | date_to_rfc822 }}</pubDate>
       </item>
-{% endfor %}
+
+    {% endif %}
+  {% endfor %}
+
+  <!-- <category>{{ post.categories }}</category> do i need this?-->
 
   </channel>
 </rss>
