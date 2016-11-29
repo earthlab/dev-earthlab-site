@@ -23,7 +23,7 @@ layout:
       {% if member.active %}
       <item>
                <title>{{ member.name | cdata_escape }}</title>
-               <link>{{ site.url }}{{ site.baseurl }}course-materials/{{ member.slug }}</link>
+               <link>{{ site.url }}{{ site.baseurl }}/course-materials/{{ member.slug }}</link>
                <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}course-materials/{{ member.slug }}</guid>
                <description>{{ member.description | xml_escape }}</description>
                <author>{{ site.author.email }} ({{ member.authors | join: ', ' }})</author>
