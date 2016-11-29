@@ -26,7 +26,8 @@
         <ul>
           <li><span class="nav__sub-title">{{ page.class-lesson }} </span>
             <ul>
-              {% for post in site.posts %}
+              {% assign sorted_posts = site.posts | sort:"order" %}
+              {% for post in sorted_posts %}
                 {% if post.class-lesson == page.class-lesson %}
                   {% if post.url == page.url %}
                   <li><a href= {{ site.url }}{{ site.baseurl }}{{ post.url }} class='active'>{{ post.nav-title }}</a></li>
