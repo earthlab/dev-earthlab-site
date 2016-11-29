@@ -1,11 +1,9 @@
 ---
-layout: single
-title: "Spatial Intro 07: Cleaning Data -- Missing and Bad Data Values"
-date:   2015-10-23
+title: "Missing and Bad Data Values - Cleaning Spatial Data"
 authors: [Leah Wasser]
 contributors: [NEON Data Skills]
 dateCreated: 2015-10-23
-lastModified: 2016-10-04
+lastModified: 2016-11-28
 packagesLibraries: [ ]
 category: [course-materials]
 excerpt: "This tutorial covers spatial data cleaning - specifically dealing with missing
@@ -16,6 +14,9 @@ sidebar:
 class-lesson: ['intro-spatial-data-r']
 author_profile: false
 comments: false
+nav-title: 'missing data'
+comments: false
+order: 11
 ---
 
 

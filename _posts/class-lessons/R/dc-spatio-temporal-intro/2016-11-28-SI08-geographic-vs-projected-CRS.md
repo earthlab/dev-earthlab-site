@@ -1,12 +1,9 @@
 ---
-layout: single
-title: "Spatial Intro 04.1: Introduction to the UTM Projected CRS and a Brief overview
-of datums"
-date: 2015-10-25
-authors: [Leah A. Wasser]
+title: "Intro to the UTM Projected CRS and a Brief overview of datums"
+authors: [Leah Wasser]
 contributors: [NEON Data Skills]
 dateCreated: 2015-10-23
-lastModified: 2016-10-04
+lastModified: 2016-11-28
 packagesLibraries: [ ]
 category: [course-materials]
 excerpt: "This tutorial focuses on the Universal Trans Mercator (UTM)
@@ -17,7 +14,9 @@ sidebar:
   nav:
 class-lesson: ['intro-spatial-data-r']
 author_profile: false
+nav-title: 'geog vs. projected'
 comments: false
+order: 8
 ---
 
 

@@ -1,12 +1,9 @@
 ---
-layout: single
-title: "Spatial Intro 04: Intro to Coordinate Reference Systems & Spatial
-Projections"
-date: 2015-10-26
+title: "Intro to Coordinate Reference Systems & Spatial Projections"
 authors: [Leah Wasser]
 contributors: [NEON Data Skills]
 dateCreated: 2015-10-23
-lastModified: 2016-10-04
+lastModified: 2016-11-28
 packagesLibraries: [ ]
 category: [course-materials]
 excerpt: "This lesson covers the key spatial attributes that are needed to work with
@@ -14,10 +11,12 @@ spatial data including: Coordinate Reference Systems (CRS), Extent and spatial r
 permalink: course-materials/spatial-data/intro-to-coordinate-reference-systems
 class-lesson: ['intro-spatial-data-r']
 author_profile: false
+sidebar:
+  nav:
+nav-title: 'crs intro'
 comments: false
 order: 7
 ---
-
 
 ## About
 
@@ -178,16 +177,6 @@ the central meridian on the globe (0,0).
 library(rgdal)
 library(ggplot2)
 library(rgeos)
-```
-
-```
-## rgeos version: 0.3-20, (SVN revision 535)
-##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921
-##  Linking to sp version: 1.2-3
-##  Polygon checking: TRUE
-```
-
-```r
 library(raster)
 
 # be sure to set your working directory
@@ -199,7 +188,10 @@ worldBound <- readOGR(dsn="Global/Boundaries/ne_110m_land",
 ```
 
 ```
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open file
+## OGR data source with driver: ESRI Shapefile 
+## Source: "Global/Boundaries/ne_110m_land", layer: "ne_110m_land"
+## with 127 features
+## It has 2 fields
 ```
 
 ```r
@@ -208,7 +200,7 @@ worldBound_df <- fortify(worldBound)
 ```
 
 ```
-## Error in fortify(worldBound): object 'worldBound' not found
+## Regions defined for each Polygons
 ```
 
 ```r
@@ -218,19 +210,11 @@ worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
   xlab("Longitude (Degrees)") + ylab("Latitude (Degrees)") +
   coord_equal() +
   ggtitle("Global Map - Geographic Coordinate System - WGS84 Datum\n Units: Degrees - Latitude / Longitude")
-```
 
-```
-## Error in ggplot(worldBound_df, aes(long, lat, group = group)): object 'worldBound_df' not found
-```
-
-```r
 worldMap
 ```
 
-```
-## Error in eval(expr, envir, enclos): object 'worldMap' not found
-```
+![ ]({{ site.baseurl }}/images/rfigs/dc-spatio-temporal-intro/07-intro-CRS-projection/lat-long-example-1.png)
 
 We can add three coordinate locations to our map. Note that the UNITS are
 in decimal **degrees** (latitude, longitude):
@@ -257,19 +241,11 @@ mapLocations <- worldMap + geom_point(data=loc.df,
                         aes(x=lon, y=lat, group=NULL),
                       colour = "springgreen",
                       size=5)
-```
 
-```
-## Error in eval(expr, envir, enclos): object 'worldMap' not found
-```
-
-```r
 mapLocations + theme(legend.position="none")
 ```
 
-```
-## Error in eval(expr, envir, enclos): object 'mapLocations' not found
-```
+![ ]({{ site.baseurl }}/images/rfigs/dc-spatio-temporal-intro/07-intro-CRS-projection/add-lat-long-locations-1.png)
 
 ## Geographic CRS - The Good & The Less Good
 
@@ -302,18 +278,12 @@ different shape compared to the map that we created above in the `CRS`:
 # reproject from longlat to robinson
 worldBound_robin <- spTransform(worldBound,
                                 CRS("+proj=robin"))
-```
 
-```
-## Error in spTransform(worldBound, CRS("+proj=robin")): object 'worldBound' not found
-```
-
-```r
 worldBound_df_robin <- fortify(worldBound_robin)
 ```
 
 ```
-## Error in fortify(worldBound_robin): object 'worldBound_robin' not found
+## Regions defined for each Polygons
 ```
 
 ```r
@@ -325,19 +295,11 @@ robMap <- ggplot(worldBound_df_robin, aes(long,lat, group=group)) +
   labs(title="World map (robinson)") +
   xlab("X Coordinates (meters)") + ylab("Y Coordinates (meters)") +
   coord_equal()
-```
 
-```
-## Error in ggplot(worldBound_df_robin, aes(long, lat, group = group)): object 'worldBound_df_robin' not found
-```
-
-```r
 robMap
 ```
 
-```
-## Error in eval(expr, envir, enclos): object 'robMap' not found
-```
+![ ]({{ site.baseurl }}/images/rfigs/dc-spatio-temporal-intro/07-intro-CRS-projection/global-map-robinson-1.png)
 
 Now what happens if you try to add the same Lat / Long coordinate locations that
 we used above, to our map, with the `CRS` of `Robinsons`?
@@ -349,19 +311,11 @@ newMap <- robMap + geom_point(data=loc.df,
                       aes(x=lon, y=lat, group=NULL),
                       colour = "springgreen",
                       size=5)
-```
 
-```
-## Error in eval(expr, envir, enclos): object 'robMap' not found
-```
-
-```r
 newMap + theme(legend.position="none")
 ```
 
-```
-## Error in eval(expr, envir, enclos): object 'newMap' not found
-```
+![ ]({{ site.baseurl }}/images/rfigs/dc-spatio-temporal-intro/07-intro-CRS-projection/add-locations-robinson-1.png)
 
 Notice above that when we try to add lat/long coordinates in degrees, to a map
 in a different `CRS`, that the points are not in the correct location. We need
@@ -385,63 +339,42 @@ loc.df
 # convert to spatial Points data frame
 loc.spdf <- SpatialPointsDataFrame(coords = loc.df, data=loc.df,
                             proj4string=crs(worldBound))
-```
 
-```
-## Error in crs(worldBound): object 'worldBound' not found
-```
-
-```r
 loc.spdf
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'loc.spdf' not found
+## class       : SpatialPointsDataFrame 
+## features    : 3 
+## extent      : -105.2519, 10.75, 39.6167, 59.95  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## variables   : 2
+## names       :       lon,     lat 
+## min values  : -105.2519, 39.6167 
+## max values  :     10.75,   59.95
 ```
 
 ```r
 # reproject data to Robinson
 loc.spdf.rob <- spTransform(loc.spdf, CRSobj = CRS("+proj=robin"))
-```
 
-```
-## Error in spTransform(loc.spdf, CRSobj = CRS("+proj=robin")): object 'loc.spdf' not found
-```
-
-```r
 loc.rob.df <- as.data.frame(cbind(loc.spdf.rob$lon, loc.spdf.rob$lat))
-```
-
-```
-## Error in cbind(loc.spdf.rob$lon, loc.spdf.rob$lat): object 'loc.spdf.rob' not found
-```
-
-```r
 # rename each column
 names(loc.rob.df ) <- c("X","Y")
-```
 
-```
-## Error in names(loc.rob.df) <- c("X", "Y"): object 'loc.rob.df' not found
-```
-
-```r
 # convert spatial object to a data.frame for ggplot
 loc.rob <- fortify(loc.rob.df)
-```
 
-```
-## Error in fortify(loc.rob.df): object 'loc.rob.df' not found
-```
-
-```r
 # notice the coordinate system in the Robinson projection (CRS) is DIFFERENT
 # from the coordinate values for the same locations in a geographic CRS.
 loc.rob
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'loc.rob' not found
+##            X       Y
+## 1 -9162993.5 4279263
+## 2   811462.5 6331141
+## 3   260256.6 4235608
 ```
 
 ```r
@@ -450,19 +383,11 @@ newMap <- robMap + geom_point(data=loc.rob,
                       aes(x=X, y=Y, group=NULL),
                       colour = "springgreen",
                       size=5)
-```
 
-```
-## Error in eval(expr, envir, enclos): object 'robMap' not found
-```
-
-```r
 newMap + theme(legend.position="none")
 ```
 
-```
-## Error in eval(expr, envir, enclos): object 'newMap' not found
-```
+![ ]({{ site.baseurl }}/images/rfigs/dc-spatio-temporal-intro/07-intro-CRS-projection/reproject-robinson-1.png)
 
 ## Compare Maps
 
@@ -488,7 +413,7 @@ page!
 ```
 
 ```
-## Error in fortify(data): object 'worldBound_df' not found
+## Error in fortify(data): object 'graticule_df' not found
 ```
 
 ```

@@ -4,7 +4,7 @@ title: "Spatial Intro 01: Intro"
 authors: [Leah Wasser]
 contributors: [NEON Data Skills]
 dateCreated: 2016-09-26
-lastModified: 2016-10-04
+lastModified: 2016-11-28
 packagesLibraries: [raster, rgdal, sp]
 category: [course-materials]
 excerpt: 'This tutorial covers the basics of key data formats that may

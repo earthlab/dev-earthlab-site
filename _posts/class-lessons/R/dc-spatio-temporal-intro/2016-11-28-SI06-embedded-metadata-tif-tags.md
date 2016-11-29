@@ -1,19 +1,19 @@
 ---
-title: "Spatial Intro 03.1: Spatial Formats that Support Embedded Metadata - Into To the GeoTiff"
+title: "Embedded Metadata - Into To the GeoTiff in R"
 date:   2015-10-27
 authors: [Leah Wasser]
 contributors: [NEON Data Skills]
 dateCreated: 2016-09-27
-lastModified: 2016-10-04
+lastModified: 2016-11-28
 packagesLibraries: [raster, rgdal, eml, devtools]
 category: [course-materials]
-excerpt: "This tutorial covers what metadata are and why we need to work
-with metadata in the context of spatio-temporal data. It
-covers the three common metadata formats: text file
-format, web page format and Ecological Metadata Language (EML)."
+excerpt: "This tutorial covers metadata embedded within a geotiff - stored as a tif tag. "
 permalink: course-materials/spatial-data/embedded-metadata-geotiff
 class-lesson: ['intro-spatial-data-r']
+sidebar:
+  nav:
 author_profile: false
+nav-title: 'tif tags'
 comments: false
 order: 6
 ---
@@ -157,10 +157,10 @@ extent(DSM_HARV)
 ```
 
 ```
-## class       : Extent
-## xmin        : 731453
-## xmax        : 733150
-## ymin        : 4712471
+## class       : Extent 
+## xmin        : 731453 
+## xmax        : 733150 
+## ymin        : 4712471 
 ## ymax        : 4713838
 ```
 
@@ -183,10 +183,10 @@ myExtent
 ```
 
 ```
-## class       : Extent
-## xmin        : 731453
-## xmax        : 733150
-## ymin        : 4712471
+## class       : Extent 
+## xmin        : 731453 
+## xmax        : 733150 
+## ymin        : 4712471 
 ## ymax        : 4713838
 ```
 
@@ -207,13 +207,13 @@ DSM_HARV
 ```
 
 ```
-## class       : RasterLayer
+## class       : RasterLayer 
 ## dimensions  : 1367, 1697, 2319799  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 731453, 733150, 4712471, 4713838  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=18 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0
-## data source : /Users/lewa8222/Documents/data/NEON-DS-Airborne-Remote-Sensing/HARV/DSM/HARV_dsmCrop.tif
-## names       : HARV_dsmCrop
+## coord. ref. : +proj=utm +zone=18 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## data source : /Users/lewa8222/Documents/data/NEON-DS-Airborne-Remote-Sensing/HARV/DSM/HARV_dsmCrop.tif 
+## names       : HARV_dsmCrop 
 ## values      : 305.07, 416.07  (min, max)
 ```
 
@@ -244,10 +244,10 @@ Compare the extent and crs to the CHM and DSM. Are they different?
 ```
 
 ```
-## class       : Extent
-## xmin        : 731453
-## xmax        : 733150
-## ymin        : 4712471
+## class       : Extent 
+## xmin        : 731453 
+## xmax        : 733150 
+## ymin        : 4712471 
 ## ymax        : 4713838
 ```
 
@@ -257,10 +257,10 @@ Compare the extent and crs to the CHM and DSM. Are they different?
 ```
 
 ```
-## class       : Extent
-## xmin        : 239415
-## xmax        : 239535
-## ymin        : 4714215
+## class       : Extent 
+## xmin        : 239415 
+## xmax        : 239535 
+## ymin        : 4714215 
 ## ymax        : 4714365
 ```
 

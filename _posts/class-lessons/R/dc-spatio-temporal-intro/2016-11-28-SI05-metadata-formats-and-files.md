@@ -1,9 +1,9 @@
 ---
-title: "Spatial Intro 03: Data About Data -- Intro to Metadata File Formats and Structure"
+title: "Intro to Metadata File Formats and Structure"
 authors: [Leah Wasser]
 contributors: [NEON Data Skills]
 dateCreated: 2016-09-27
-lastModified: 2016-10-04
+lastModified: 2016-11-28
 packagesLibraries: [raster, rgdal, eml, devtools]
 category: [course-materials]
 excerpt: "This tutorial introduces the importance of metadata. It
@@ -11,6 +11,9 @@ also broadly covers embedded, structured and unstructured metadata."
 permalink: course-materials/spatial-data/metadata-file-formats-structures
 class-lesson: ['intro-spatial-data-r']
 author_profile: false
+sidebar:
+  nav:
+nav-title: 'metadata intro'
 comments: false
 order: 5
 ---
@@ -53,7 +56,7 @@ encounter metadata
 
 </div>
 
-![ ]({{ site.baseurl }}/images/rfigs/dc-spatio-temporal-intro/03-metadata-formats-and-files/elevation-map-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/dc-spatio-temporal-intro/05-metadata-formats-and-files/elevation-map-1.png)
 
 
 <div class="notice--warning" markdown="1">

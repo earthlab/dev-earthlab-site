@@ -1,12 +1,9 @@
 ---
-layout: single
-title: "Spatial Intro 08: Intro to Spatial Metadata -- Spatial Resolution and
-Spatial Extent"
-date: 2015-10-22
+title: "Key Spatial Attributes - About Spatial Resolution and Extent"
 authors: [Leah A. Wasser]
 contributors: [NEON Data Skills]
 dateCreated: 2015-10-23
-lastModified: 2016-10-04
+lastModified: 2016-11-28
 packagesLibraries: [ ]
 category: [course-materials]
 excerpt: "This lesson covers the key spatial attributes that are needed to work with
@@ -17,7 +14,8 @@ sidebar:
 class-lesson: ['intro-spatial-data-r']
 author_profile: false
 comments: false
-nav-title:
+nav-title: 'spatial metadata'
+order: 10
 ---
 
 
@@ -116,8 +114,8 @@ DEM@extent
 ```
 
 <figure>
-    <a href="{{ site.baseurl }}/images/hyperspectral/pixelDetail.png">
-    <img src="{{ site.baseurl }}/images/hyperspectral/pixelDetail.png"></a>
+    <a href="{{ site.baseurl }}/images/dc-spatio-temporal-intro/pixelDetail.png">
+    <img src="{{ site.baseurl }}/images/dc-spatio-temporal-intro/pixelDetail.png"></a>
     <figcaption>The spatial resolution of a raster refers the size of each cell
     in meters. This size in turn relates to the area on the ground that the pixel
     represents.</figcaption>
@@ -154,13 +152,13 @@ myRaster1
 ```
 
 ```
-## class       : RasterLayer
+## class       : RasterLayer 
 ## dimensions  : 4, 4, 16  (nrow, ncol, ncell)
 ## resolution  : 90, 45  (x, y)
 ## extent      : -180, 180, -90, 90  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0
+## coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 
 ## data source : in memory
-## names       : layer
+## names       : layer 
 ## values      : 1, 16  (min, max)
 ```
 
@@ -180,10 +178,10 @@ myRaster1@extent
 ```
 
 ```
-## class       : Extent
-## xmin        : -180
-## xmax        : 180
-## ymin        : -90
+## class       : Extent 
+## xmin        : -180 
+## xmax        : 180 
+## ymin        : -90 
 ## ymax        : 90
 ```
 
@@ -191,7 +189,7 @@ myRaster1@extent
 plot(myRaster1, main="Raster with 16 pixels")
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/dc-spatio-temporal-intro/07-spatial-resolution-extent/calculate-raster-extent-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/dc-spatio-temporal-intro/10-spatial-resolution-extent/calculate-raster-extent-1.png)
 
 ## Spatial Resolution
 A raster consists of a series of pixels, each with the same dimensions

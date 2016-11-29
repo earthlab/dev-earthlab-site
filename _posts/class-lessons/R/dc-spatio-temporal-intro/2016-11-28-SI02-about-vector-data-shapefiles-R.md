@@ -1,9 +1,10 @@
 ---
-title: "Spatial Intro 02.1: Vector Data - Intro to Shapefiles in R"
+layout: single
+title: "Intro to Vector Data & Shapefiles in R"
 authors: [Leah Wasser]
 contributors: [NEON Data Skills]
 dateCreated: 2016-09-25
-lastModified: 2016-10-04
+lastModified: 2016-11-28
 packagesLibraries: [raster, rgdal, sp]
 category: [course-materials]
 excerpt: "This tutorial introduces the vector spatial data format, stored in
@@ -12,7 +13,7 @@ permalink: course-materials/spatial-data/about-shapefiles
 class-lesson: ['intro-spatial-data-r']
 sidebar:
   nav:
-nav-title: 'shapefile intro'
+nav-title: 'vector intro'
 author_profile: false
 comments: false
 order: 2
@@ -61,8 +62,8 @@ of the vertices determines the type of vector that we are working
 with: **point**, **line** or **polygon**.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/dc-spatial-vector/pnt_line_poly.png">
-    <img src="{{ site.baseurl }}/images/dc-spatial-vector/pnt_line_poly.png"></a>
+    <a href="{{ site.baseurl }}/images/dc-spatio-temporal-intro/pnt_line_poly.png">
+    <img src="{{ site.baseurl }}/images/dc-spatio-temporal-intro/pnt_line_poly.png"></a>
     <figcaption> There are 3 types of vector objects: points, lines or
     polygons. Each vector object type has a different structure.
     Image Source: National Ecological Observatory Network (NEON)
@@ -104,7 +105,7 @@ roads_HARV <- readOGR("NEON-DS-Site-Layout-Files/HARV","HARV_roads")
 ```
 
 ```
-## OGR data source with driver: ESRI Shapefile
+## OGR data source with driver: ESRI Shapefile 
 ## Source: "NEON-DS-Site-Layout-Files/HARV", layer: "HARV_roads"
 ## with 13 features
 ## It has 15 fields
@@ -192,9 +193,9 @@ roads_HARV@lines[13]
 ## [45,] 733170.0 4714259
 ## [46,] 733239.0 4714246
 ## [47,] 733295.5 4714217
-##
-##
-##
+## 
+## 
+## 
 ## Slot "ID":
 ## [1] "12"
 ```
@@ -229,8 +230,8 @@ may have a name, length, number of lanes, speed limit, type of road and other
 attributes stored with it.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/dc-spatial-vector/Attribute_Table.png">
-    <img src="{{ site.baseurl }}/images/dc-spatial-vector/Attribute_Table.png"></a>
+    <a href="{{ site.baseurl }}/images/dc-spatio-temporal-intro/attribute_table.png">
+    <img src="{{ site.baseurl }}/images/dc-spatio-temporal-intro/attribute_table.png"></a>
     <figcaption>Each spatial feature in an R spatial object has the same set of
     associated attributes that describe or characterize the feature.
     Attribute data are stored in a separate *.dbf file. Attribute data can be

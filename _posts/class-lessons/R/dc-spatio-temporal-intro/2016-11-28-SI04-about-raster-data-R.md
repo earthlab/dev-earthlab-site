@@ -1,9 +1,10 @@
 ---
-title: "Spatial Intro 02.3: Spatial Data Formats -- About Raster Data"
+layout: single
+title: "Intro to Raster Data in R"
 authors: [Leah Wasser]
 contributors: [NEON Data Skills]
 dateCreated: 2016-09-23
-lastModified: 2016-10-04
+lastModified: 2016-11-28
 packagesLibraries: [raster, rgdal, sp]
 category: [course-materials]
 excerpt: "This tutorial introduces the raster data format, stored in .GeoTIFF
@@ -11,6 +12,8 @@ format."
 permalink: course-materials/spatial-data/about-raster-data
 class-lesson: ['intro-spatial-data-r']
 author_profile: false
+sidebar:
+  nav:
 nav-title: 'raster intro'
 comments: false
 order: 4
@@ -60,8 +63,8 @@ as pixels. Each pixel contains a value that represents an area on the Earth's
 surface.
 
 <figure>
-    <a href="{{site.baseurl}}/images/dc-spatial-raster/raster_concept.png">
-    <img src="{{site.baseurl}}/images/dc-spatial-raster/raster_concept.png">
+    <a href="{{site.baseurl}}/images/dc-spatio-temporal-intro/raster_concept.png">
+    <img src="{{site.baseurl}}/images/dc-spatio-temporal-intro/raster_concept.png">
     </a>
     <figcaption> Source: National Ecological Observatory Network (NEON)
     </figcaption>
@@ -81,19 +84,19 @@ GDALinfo("NEON-DS-Airborne-Remote-Sensing/HARV/CHM/HARV_chmCrop.tif")
 ```
 
 ```
-## rows        1367
-## columns     1697
-## bands       1
-## lower left origin.x        731453
-## lower left origin.y        4712471
-## res.x       1
-## res.y       1
-## ysign       -1
-## oblique.x   0
-## oblique.y   0
-## driver      GTiff
-## projection  +proj=utm +zone=18 +datum=WGS84 +units=m +no_defs
-## file        NEON-DS-Airborne-Remote-Sensing/HARV/CHM/HARV_chmCrop.tif
+## rows        1367 
+## columns     1697 
+## bands       1 
+## lower left origin.x        731453 
+## lower left origin.y        4712471 
+## res.x       1 
+## res.y       1 
+## ysign       -1 
+## oblique.x   0 
+## oblique.y   0 
+## driver      GTiff 
+## projection  +proj=utm +zone=18 +datum=WGS84 +units=m +no_defs 
+## file        NEON-DS-Airborne-Remote-Sensing/HARV/CHM/HARV_chmCrop.tif 
 ## apparent band summary:
 ##    GDType hasNoDataValue NoDataValue blockSize1 blockSize2
 ## 1 Float64           TRUE       -9999          1       1697
@@ -112,13 +115,13 @@ chm_HARV
 ```
 
 ```
-## class       : RasterLayer
+## class       : RasterLayer 
 ## dimensions  : 1367, 1697, 2319799  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 731453, 733150, 4712471, 4713838  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=18 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0
-## data source : /Users/lewa8222/Documents/data/NEON-DS-Airborne-Remote-Sensing/HARV/CHM/HARV_chmCrop.tif
-## names       : HARV_chmCrop
+## coord. ref. : +proj=utm +zone=18 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## data source : /Users/lewa8222/Documents/data/NEON-DS-Airborne-Remote-Sensing/HARV/CHM/HARV_chmCrop.tif 
+## names       : HARV_chmCrop 
 ## values      : 0, 38.17  (min, max)
 ```
 

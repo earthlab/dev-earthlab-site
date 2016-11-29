@@ -1,11 +1,9 @@
 ---
-layout: single
-title: "Spatial Intro 04.2: A Quick Overview of CRS Formats - Proj4 & EPSG - in R"
-date: 2015-10-24
-authors: [Leah A. Wasser]
+title: "A Abridged Overview of CRS Formats - Proj4 & EPSG - in R"
+authors: [Leah Wasser]
 contributors: [NEON Data Skills]
 dateCreated: 2016-02-26
-lastModified: 2016-10-04
+lastModified: 2016-11-28
 packagesLibraries: [ ]
 category: [course-materials]
 excerpt: "This lesson covers formats that CRS information may be in including
@@ -16,6 +14,8 @@ sidebar:
 class-lesson: ['intro-spatial-data-r']
 author_profile: false
 comments: false
+nav-title: 'proj4 & epsg'
+order: 9
 ---
 
 
