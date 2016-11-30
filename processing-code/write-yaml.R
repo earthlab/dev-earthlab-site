@@ -1,48 +1,47 @@
----
-title: "Write Yaml List from All Posts"
-output: html_document
----
 
-First, load some libraries that we'll need to write the YAML
+# Script to generate author yaml and md files from posts ------------------
 
-```{r}
+# First, load some libraries that we'll need to write the YAML
+
 ### This code reads through a set of files and parses out the YAML tags
 ### It then builds a yml list
 ### holy sweet awesomeness batman!
 library(readr)
 library(yaml)
 library(dplyr)
+source("processing-code/helpers.R")
+#Then setup the code to grab all .md files in the _posts directory 
+# and save the `authors.yml` file.
 
-```
-
-Then setup the code to grab all .md files in the _posts directory and save the `authors.yml` file.
-
-```{r}
 # avoid strings becoming factors
 options(stringsAsFactors = FALSE)
 
 # helper functions --------------------------------------------------------
-generate_author_df <- function(file) {
-  # extract "authors" field from yaml frontmatter
+yaml2df <- function(file, field) {
+  # extract "element" field from yaml frontmatter
   # args:
   #   - file (string) a path to a markdown file with yaml frontmatter
+  #   - field (string) a yaml field, e.g., authors, lib
   # returns:
-  #   - data frame with a name and slug column, one row per author
+  #   - data frame with a name and slug column, one row per element
 
-  first_n_lines <- read_lines(file, n_max = 10) # should contain frontmatter
-  author_line <- first_n_lines[grep("authors:", first_n_lines)]
+  first_n_lines <- read_lines(file, n_max = 100) # should contain frontmatter
+  field_colon <- paste0(field, ":")
+  field_line <- first_n_lines[grep(field_colon, first_n_lines)]
 
-  if (is.na(author_line[1])) {
-    warning(paste("no authors for", file, "\n"))
+  if (is.na(field_line[1])) {
+    warning(paste("no", field, "for", file, "\n"))
     return(data.frame(name = NULL, slug = NULL))
   }
 
-  # remove "authors: " and square brackets
-  author_line <- gsub(pattern = "authors: ", x = author_line, replacement = "" )
-  author_line <- gsub(pattern = "\\]|\\[", x = author_line, replacement = "" )
+  # remove "field: " and square brackets
+  field_line <- gsub(pattern = paste0(field_colon, " "), 
+                     x = field_line, 
+                     replacement = "" )
+  field_line <- gsub(pattern = "\\]|\\[", x = field_line, replacement = "" )
 
-  # make a data frame with a row for each author
-  df <- author_line %>%
+  # make a data frame with a row for each field element
+  df <- field_line %>%
     strsplit(split = ",") %>%
     unlist() %>%
     data.frame()
@@ -57,13 +56,10 @@ generate_author_df <- function(file) {
 
 
 # produce the authors.yaml file -----------------------------------------
-post_dir <- "../_posts"
-md_files <- post_dir %>%
-  file.path(list.files(post_dir, pattern = ".md",
-                           recursive = TRUE, include.dirs = TRUE))
+md_files <- list_posts()
 
 # find all unique authors in the markdown files
-authors <- lapply(md_files, generate_author_df) %>%
+authors <- lapply(md_files, yaml2df, "authors") %>%
   do.call(what = rbind) %>%
   unique() %>%
   arrange(slug)
@@ -71,24 +67,21 @@ authors <- lapply(md_files, generate_author_df) %>%
 finalYAML <- yaml::as.yaml(authors, column.major = FALSE)
 
 # save output (do we need to prepend "_data/"?)
-cat(finalYAML, file = "../_data/authors.yml")
-```
+cat(finalYAML, file = "_data/authors.yml")
 
-Finally, for each author, save a markdown file that looks like:
 
-```
----
-layout: post-by-author
-author: Matt Oakley
-permalink: /authors/matt-oakley/
-title: 'Matt Oakley'
-author_profile: false
-site-map: true
----
-```
+# Finally, for each author, save a markdown file that looks like:
 
-```{r}
-gen_author_profiles <- function(authors, prefix = "../org/authors") {
+# ---
+# layout: post-by-author
+# author: Matt Oakley
+# permalink: /authors/matt-oakley/
+# title: 'Matt Oakley'
+# author_profile: false
+# site-map: true
+# ---
+
+gen_author_profiles <- function(authors, prefix = "org/authors") {
   # saves a markdown file for each author that will list their posts
   # args:
   #   - authors (data.frame consisting of the author name and slug)
@@ -115,4 +108,3 @@ gen_author_profiles <- function(authors, prefix = "../org/authors") {
 }
 
 gen_author_profiles(authors)
-```
