@@ -6,7 +6,7 @@ excerpt: "The overview page I used at CU 5 April 2016."
 category: [course-materials]
 class-lesson: ['veg-structure-lidar']
 permalink: /course-materials/veg-structure-lidar-point-clouds
-nav-title: 'point clouds'
+nav-title: 'Point clouds'
 sidebar:
   nav:
 author_profile: false
@@ -30,54 +30,80 @@ order: 2
 [Download Lesson Data](#){: .btn .btn--large}
 </div>
 
+## Discrete Return LiDAR Data
+There are different types of lidar data. One common type is called **Discrete
+return lidar**. In a discrete return lidar system, a pulse of energy is shot out
+towards the earth's surface. Light energy then reflects off of objects that it
+encounters on it's way down to the ground such as tree branches, power lines,
+buildings and ofcourse the ground. Each reflection is called a return. Discrete
+return systems record returns that are strongest (where the most light was reflected)
+with some systems recording 1-4 returns per pulse of light emitted from the lidar
+sensor.
 
-## LiDAR Point Clouds -- The Basics
-
-Each point in a LiDAR dataset has a X, Y, Z value and other attributes. The points may be located anywhere in space are not aligned within any particular grid. <image: LiDAR data point spacing>.
-
-LiDAR point clouds are typically available in a .las file format. The .las file format is a compressed format that can better handle the millions of points that are often associated with LiDAR data point clouds.
-
-### Classifying LiDAR point clouds
-
-LiDAR data points are vector data. LiDAR point clouds are useful because they tell us something about the heights of objects on the ground. However, how do we know whether a point reflected off of a tree, a bird, a building or the ground? In order to develop products like elevation models and canopy height models, we need to classify individual LiDAR points. We might classify LiDAR points into classes including:
-
-- Ground
-- Vegetation
-- Buildings
-
-Lidar Point cloud classification is often already done when you download LiDAR point clouds but just know that it’s not to be taken for granted! Programs such as lastools, fusion and terrascan are often used to perform this classification. Once the points are classified, they can be used to derive various LiDAR data products.
-
-
-## What Is Discrete Return Lidar -- Plasio
+Discrete return lidar data are recorded as *discrete* points, in X, Y, Z format creating what's known as a lidar point cloud.
 
 ### How discrete points are recorded:
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/uSESVm59uDQ?rel=0" frameborder="0" allowfullscreen></iframe>
 
-### Plas.io
+In addition to
+X, Y and Z (elevation) information, each point cloud can also have other information
+associated with it including:
 
-1. Concept: Lidar data measure elevation - plas.io, color by height map. NOTE: be sure to turn off intensity shading.
-2. Concept: Lidar data can be CLASSIFIED to discriminate veg from ground from other objects.
+* COLOR - the Red, Green and Blue (RGB) value associated with the lidar data point (often extracted from an associated RGB image).
+* Intensity - quantifying the amount of light reflected off of the object on the ground.
+
+The point cloud format is stored as <a href="#" target="_blank">vector data (link to vector
+ overview)</a>. The points may be located anywhere in space are not aligned
+ within any particular grid.
 
 
-
-
-## ### Three Common LiDAR Data Products ###
-- [Digital Terrain Model](http://neonhighered.org/3dRasterLidar/DTM.html) - This product represents the ground.
-- [Digital Surface Model](http://neonhighered.org/3dRasterLidar/DSM.html) - This represents the top of the surface (so imagine draping a sheet over the canopy of a forest).
-- [Canopy Height Model](http://neonhighered.org/3dRasterLidar/CHM.html) - This represents the elevation of the Earth's surface - and it sometimes also called a DEM or digital elevation model.
-
-<figure class="third">
-    <a href="http://neonhighered.org/3d/SJER_DSM_3d.html"><img src="{{ site.baseurl }}/images/course-materials/lidar/dsm.png"></a>
-    <a href="http://neonhighered.org/3d/SJER_DTM_3d.html"><img src="{{ site.baseurl }}/images/course-materials/lidar/dem.png"></a>
-    <a href="http://neonhighered.org/3d/SJER_CHM_3d.html" target="_blank"><img src="{{ site.baseurl }}/images/course-materials/lidar/chm.png"></a>
-
-    <figcaption> 3d models of a: LEFT: lidar derived digital surface model (DSM) , MIDDLE: Digital Elevation Model (DEM) and RIGHT: Canopy Height Model (CHM). Click on the images to view interactive 3d models. </figcaption>
+<figure class='half'>
+<a href="{{ site.url }}{{ site.baseurl }}#"><img src="{{ site.url }}{{ site.baseurl }}#"></a>
+<figcaption>image of point clouds </figcaption>
 </figure>
 
 
-## CHM vs InSitu Differences Differences
+### Classifying LiDAR point clouds
 
-<iframe width="700" height="800" frameborder="0" scrolling="no" src="https://plot.ly/~leahawasser/24.embed"></iframe>
+LiDAR point clouds are useful because they tell us something about the heights of objects on the ground. However, how do we know whether a point reflected off of a tree, a bird, a building or the ground? In order to develop useful data products like elevation models and canopy height models (which we will talk about next), we need to classify individual LiDAR points. We might classify LiDAR points into classes including:
 
-<iframe width="700" height="700" frameborder="0" scrolling="no" src="https://plot.ly/~leahawasser/158.embed"></iframe>
+- Ground
+- Vegetation
+- Buildings
+
+There are special tools and algorithms that can be used to classify lidar point clouds.
+Programs such as:
+
+* lastools,
+* fusion and
+* terrascan
+
+are often used to perform this classification. Once the points are classified, they can be used to derive various
+LiDAR data products.
+
+<Image - cross section, 1. unclassified points 2. classified points 3. >
+
+## Work With Point Clouds
+Point clouds can be challenging to work with as they are extremely large and often
+require special tools or programming to work with efficiently. For this reason,
+many people will take lidar point clouds turn them into a <a href="#">raster data </a>
+product. It is common to create surface models that represent:
+
+* Terrain: the elevation of the ground
+* Surface elevation: the elevation at the top of the surface which may include trees and buildings
+* Vegetation height
+
+<figure class='half'>
+<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/lidar/lidar-chm-dsm-dtm.png"><img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/lidar/
+lidar-chm-dsm-dtm.png"></a>
+<figcaption>image of point clouds </figcaption>
+</figure>
+
+We will talk about the process of turning lidar point clouds into surface models, next.
+
+## Point Cloud File Formats
+
+LiDAR point clouds are most often available in a `.las` file format. The .las
+file format is a compressed format that can better handle extremely large volumes
+of points.

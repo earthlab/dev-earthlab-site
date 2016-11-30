@@ -6,7 +6,7 @@ excerpt: "The overview page I used at CU 5 April 2016."
 category: [course-materials]
 class-lesson: ['veg-structure-lidar']
 permalink: /course-materials/lidar-point-to-raster
-nav-title: 'point 2 raster'
+nav-title: 'Point 2 raster'
 sidebar:
   nav:
 author_profile: false

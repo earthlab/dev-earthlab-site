@@ -6,7 +6,7 @@ excerpt: "COmparing airborne to in situ."
 category: [course-materials]
 class-lesson: ['veg-structure-lidar']
 permalink: /course-materials/lidar-airborne-to-insitu
-nav-title: 'air 2 ground'
+nav-title: 'Tree Height'
 sidebar:
   nav:
 author_profile: false

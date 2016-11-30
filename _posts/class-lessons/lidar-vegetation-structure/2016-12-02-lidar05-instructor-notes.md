@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 'Airborne to In Situ'
+title: 'Instructor Notes'
 authors: [Leah Wasser]
 excerpt: "Comparing airborne lidar derived tree height to in situ measured tree height."
 category: [course-materials]
@@ -30,9 +30,11 @@ order: 5
 [Download Lesson Data](#){: .btn .btn--large}
 </div>
 
+## Activity Overview
 
-## CHM vs InSitu Differences Differences
-
-<iframe width="700" height="800" frameborder="0" scrolling="no" src="https://plot.ly/~leahawasser/24.embed"></iframe>
-
-<iframe width="700" height="700" frameborder="0" scrolling="no" src="https://plot.ly/~leahawasser/158.embed"></iframe>
+| Time (Mins)  |Topic   |
+|---|---|---|---|---|
+|  10 | xx   |
+|  25 | xx   |
+|  20 | xx  |
+| 05 | xx |
