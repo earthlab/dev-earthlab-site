@@ -67,7 +67,7 @@ missing_df <- langs %>%
 
 
 
-# Last, fill in any missing libs in _data/libs.yml ------------------------
+# Fill in any missing libs in _data/libs.yml ------------------------
 
 sync_libs_yaml <- function(missing_df, libs_yaml) {
   # If any libs are used in posts, but not in the _data/libs.yml file, this 
@@ -97,3 +97,61 @@ sync_libs_yaml <- function(missing_df, libs_yaml) {
 }
 
 sync_libs_yaml(missing_df, libs_yaml)
+
+
+# Last, generate the md files for each lib, so that the posts get listed ------
+libs_yaml <- yaml.load_file("_data/libs.yml")
+
+list_to_df <- function(x) {
+  if (!is.null(x$libs)) {
+    res <- data.frame(lang = x$lang, libs = x$libs)
+  } else {
+    res <- data.frame(lang = NULL, libs = NULL)
+  }
+  res
+}
+
+lib_md_df <- lapply(libs_yaml, list_to_df) %>%
+  bind_rows() %>%
+  mutate(filename = file.path("org", "lang-lib", "libs", paste0(libs, ".md")), 
+         exists = file.exists(filename))
+
+# check for libs with same name, but different languages and raise hell
+# (we currently do not support this case)
+n_langs <- lib_md_df %>%
+  group_by(libs) %>%
+  summarize(n_lang = length(unique(lang)))
+if (any(n_langs$n_lang > 1)) {
+  stop("At least one library has the same name for multile languages. \n
+       See the 'n_langs' data frame to identify the problem!")
+}
+
+
+# finally, generate md files for any libs that don't already have one
+generate_lib_md <- function(df) {
+  stopifnot(nrow(df) == 1 & df$exists == FALSE)
+  yaml <- list(layout = "post-by-category",
+               category = "tutorials", 
+               title = paste(df$libs, "-", firstup(df$lang), 
+                             "Data Intensive Tutorials"),
+               permalink = paste0("/tutorials/software/", 
+                                  df$lang, "/", df$libs),
+               comments = "false", 
+               author_profile = "false",
+               language = df$lang, 
+               library = df$libs, 
+               langSide = "true") %>%
+    as.yaml()
+
+  # save as md
+  cat(paste0("---\n",
+             yaml,
+             "---\n"),
+      file = df$filename)
+  return(data.frame())
+}
+
+lib_md_df %>%
+  filter(!exists) %>%
+  group_by(filename) %>%
+  do(generate_lib_md(.))

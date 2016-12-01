@@ -59,3 +59,10 @@ yaml2df <- function(file, field) {
            value = trimws(value)) %>%
     select(file, field, value)
 }
+
+
+firstup <- function(x) {
+  # capitalize first letter of a string
+  substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+  x
+}
