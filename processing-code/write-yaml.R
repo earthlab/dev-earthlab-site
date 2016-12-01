@@ -16,51 +16,13 @@ source("processing-code/helpers.R")
 # avoid strings becoming factors
 options(stringsAsFactors = FALSE)
 
-# helper functions --------------------------------------------------------
-yaml2df <- function(file, field) {
-  # extract "element" field from yaml frontmatter
-  # args:
-  #   - file (string) a path to a markdown file with yaml frontmatter
-  #   - field (string) a yaml field, e.g., authors, lib
-  # returns:
-  #   - data frame with a name and slug column, one row per element
-
-  first_n_lines <- read_lines(file, n_max = 100) # should contain frontmatter
-  field_colon <- paste0(field, ":")
-  field_line <- first_n_lines[grep(field_colon, first_n_lines)]
-
-  if (is.na(field_line[1])) {
-    warning(paste("no", field, "for", file, "\n"))
-    return(data.frame(name = NULL, slug = NULL))
-  }
-
-  # remove "field: " and square brackets
-  field_line <- gsub(pattern = paste0(field_colon, " "), 
-                     x = field_line, 
-                     replacement = "" )
-  field_line <- gsub(pattern = "\\]|\\[", x = field_line, replacement = "" )
-
-  # make a data frame with a row for each field element
-  df <- field_line %>%
-    strsplit(split = ",") %>%
-    unlist() %>%
-    data.frame()
-  names(df) <- "name"
-
-  # remove spaces and make lowercase: "Matt Oakley -> matt-oakley
-  df %>%
-    mutate(name = trimws(name),
-           slug = tolower(gsub(pattern = " ", x = name, replacement = "-")))
-}
-
-
-
 # produce the authors.yaml file -----------------------------------------
 md_files <- list_posts()
 
 # find all unique authors in the markdown files
 authors <- lapply(md_files, yaml2df, "authors") %>%
-  do.call(what = rbind) %>%
+  bind_rows() %>%
+  select(value, slug) %>%
   unique() %>%
   arrange(slug)
 
@@ -90,9 +52,9 @@ gen_author_profiles <- function(authors, prefix = "org/authors") {
   for (i in 1:nrow(authors)) {
     # make a list with the name, layout, etc.
     auth_list <- list(layout = "post-by-author",
-                      author = authors$name[i],
+                      author = authors$value[i],
                       permalink = paste0("/authors/", authors$slug[i], "/"),
-                      title = authors$name[i],
+                      title = authors$value[i],
                       author_profile = "false",
                       `site-map` = "true")
     # convert to yaml
