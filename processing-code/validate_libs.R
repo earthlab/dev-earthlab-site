@@ -129,29 +129,30 @@ if (any(n_langs$n_lang > 1)) {
 
 # finally, generate md files for any libs that don't already have one
 generate_lib_md <- function(df) {
-  stopifnot(nrow(df) == 1 & df$exists == FALSE)
-  yaml <- list(layout = "post-by-category",
-               category = "tutorials", 
-               title = paste(df$libs, "-", firstup(df$lang), 
-                             "Data Intensive Tutorials"),
-               permalink = paste0("/tutorials/software/", 
-                                  df$lang, "/", df$libs),
-               comments = "false", 
-               author_profile = "false",
-               language = df$lang, 
-               library = df$libs, 
-               langSide = "true") %>%
-    as.yaml()
-
-  # save as md
-  cat(paste0("---\n",
-             yaml,
-             "---\n"),
-      file = df$filename)
+  stopifnot(nrow(df) == 1)
+  if (!df$exists) {
+    yaml <- list(layout = "post-by-category",
+                 category = "tutorials", 
+                 title = paste(df$libs, "-", firstup(df$lang), 
+                               "Data Intensive Tutorials"),
+                 permalink = paste0("/tutorials/software/", 
+                                    df$lang, "/", df$libs),
+                 comments = "false", 
+                 author_profile = "false",
+                 language = df$lang, 
+                 library = df$libs, 
+                 langSide = "true") %>%
+      as.yaml()
+    
+    # save as md
+    cat(paste0("---\n",
+               yaml,
+               "---\n"),
+        file = df$filename)
+  }
   return(data.frame())
 }
 
 lib_md_df %>%
-  filter(!exists) %>%
   group_by(filename) %>%
   do(generate_lib_md(.))
