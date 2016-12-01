@@ -66,7 +66,7 @@ the bottom. We'll try our best to help!
       {% if post.lastModified %}Last modified: {{ post.lastModified | date: "%b %-d, %Y" }}{% endif %}
       {% if post.packagesLibraries %} - Libraries: {{ post.packagesLibraries | join: ', ' %}}{% endif %}
       </span>
-      <p class='archive__item-excerpt'>{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 120 }}{% endif %}</p>
+      <p class='archive__item-excerpt'>{% if post.excerpt %}{{ post.excerpt }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 120 }}{% endif %}</p>
     {% endif %}
   </article>
   </div>
