@@ -6,15 +6,11 @@
 ### This code reads through a set of files and parses out the YAML tags
 ### It then builds a yml list
 ### holy sweet awesomeness batman!
-library(readr)
 library(yaml)
 library(dplyr)
 source("processing-code/helpers.R")
 #Then setup the code to grab all .md files in the _posts directory 
 # and save the `authors.yml` file.
-
-# avoid strings becoming factors
-options(stringsAsFactors = FALSE)
 
 # produce the authors.yaml file -----------------------------------------
 md_files <- list_posts()
@@ -22,7 +18,8 @@ md_files <- list_posts()
 # find all unique authors in the markdown files
 authors <- lapply(md_files, yaml2df, "authors") %>%
   bind_rows() %>%
-  mutate(name = value) %>%
+  mutate(name = value,
+         slug = tolower(gsub(pattern = " ", x = value, replacement = "-"))) %>%
   select(name, slug) %>%
   unique() %>%
   arrange(slug)

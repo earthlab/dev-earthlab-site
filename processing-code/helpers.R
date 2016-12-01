@@ -1,3 +1,5 @@
+library(readr)
+options(stringsAsFactors = FALSE)
 
 # Helper functions for building the website -------------------------------
 
