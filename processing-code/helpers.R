@@ -5,7 +5,7 @@ list_posts <- function() {
   # returns a vector with all of the markdown files in the _posts/ directory
   post_dir <- "_posts"
   md_files <- post_dir %>%
-    file.path(list.files(post_dir, pattern = ".md",
+    file.path(list.files(post_dir, pattern = "\\.md",
                          recursive = TRUE, include.dirs = TRUE))
   md_files
 }
@@ -19,7 +19,7 @@ yaml2df <- function(file, field) {
   #   - file (string) a path to a markdown file with yaml frontmatter
   #   - field (string) a yaml field, e.g., authors, lib
   # returns:
-  #   - data frame with a value and slug column, one row per element
+  #   - data frame with file, field, and value (one row per element)
   
   first_n_lines <- read_lines(file, n_max = 100) # should contain frontmatter
   field_colon <- paste0(field, ":")
@@ -52,9 +52,8 @@ yaml2df <- function(file, field) {
   
   # remove spaces and make lowercase: "Matt Oakley -> matt-oakley
   df %>%
-    mutate(source_file = file, 
+    mutate(file = file, 
            field = field, 
-           value = trimws(value),
-           slug = tolower(gsub(pattern = " ", x = value, replacement = "-"))) %>%
-    select(source_file, field, value, slug)
+           value = trimws(value)) %>%
+    select(file, field, value)
 }
