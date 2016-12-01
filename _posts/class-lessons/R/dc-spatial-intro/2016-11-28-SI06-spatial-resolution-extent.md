@@ -1,6 +1,6 @@
 ---
 title: "Key Spatial Attributes - About Spatial Resolution and Extent"
-authors: [Leah A. Wasser]
+authors: [Leah Wasser]
 contributors: [NEON Data Skills]
 dateCreated: 2015-10-23
 lastModified: 2016-11-29
