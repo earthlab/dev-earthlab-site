@@ -22,7 +22,8 @@ md_files <- list_posts()
 # find all unique authors in the markdown files
 authors <- lapply(md_files, yaml2df, "authors") %>%
   bind_rows() %>%
-  select(value, slug) %>%
+  mutate(name = value) %>%
+  select(name, slug) %>%
   unique() %>%
   arrange(slug)
 
@@ -52,9 +53,9 @@ gen_author_profiles <- function(authors, prefix = "org/authors") {
   for (i in 1:nrow(authors)) {
     # make a list with the name, layout, etc.
     auth_list <- list(layout = "post-by-author",
-                      author = authors$value[i],
+                      author = authors$name[i],
                       permalink = paste0("/authors/", authors$slug[i], "/"),
-                      title = authors$value[i],
+                      title = authors$name[i],
                       author_profile = "false",
                       `site-map` = "true")
     # convert to yaml
