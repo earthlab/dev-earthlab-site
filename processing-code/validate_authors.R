@@ -6,61 +6,21 @@
 ### This code reads through a set of files and parses out the YAML tags
 ### It then builds a yml list
 ### holy sweet awesomeness batman!
-library(readr)
 library(yaml)
 library(dplyr)
 source("processing-code/helpers.R")
 #Then setup the code to grab all .md files in the _posts directory 
 # and save the `authors.yml` file.
 
-# avoid strings becoming factors
-options(stringsAsFactors = FALSE)
-
-# helper functions --------------------------------------------------------
-yaml2df <- function(file, field) {
-  # extract "element" field from yaml frontmatter
-  # args:
-  #   - file (string) a path to a markdown file with yaml frontmatter
-  #   - field (string) a yaml field, e.g., authors, lib
-  # returns:
-  #   - data frame with a name and slug column, one row per element
-
-  first_n_lines <- read_lines(file, n_max = 100) # should contain frontmatter
-  field_colon <- paste0(field, ":")
-  field_line <- first_n_lines[grep(field_colon, first_n_lines)]
-
-  if (is.na(field_line[1])) {
-    warning(paste("no", field, "for", file, "\n"))
-    return(data.frame(name = NULL, slug = NULL))
-  }
-
-  # remove "field: " and square brackets
-  field_line <- gsub(pattern = paste0(field_colon, " "), 
-                     x = field_line, 
-                     replacement = "" )
-  field_line <- gsub(pattern = "\\]|\\[", x = field_line, replacement = "" )
-
-  # make a data frame with a row for each field element
-  df <- field_line %>%
-    strsplit(split = ",") %>%
-    unlist() %>%
-    data.frame()
-  names(df) <- "name"
-
-  # remove spaces and make lowercase: "Matt Oakley -> matt-oakley
-  df %>%
-    mutate(name = trimws(name),
-           slug = tolower(gsub(pattern = " ", x = name, replacement = "-")))
-}
-
-
-
 # produce the authors.yaml file -----------------------------------------
 md_files <- list_posts()
 
 # find all unique authors in the markdown files
 authors <- lapply(md_files, yaml2df, "authors") %>%
-  do.call(what = rbind) %>%
+  bind_rows() %>%
+  mutate(name = value,
+         slug = tolower(gsub(pattern = " ", x = value, replacement = "-"))) %>%
+  select(name, slug) %>%
   unique() %>%
   arrange(slug)
 
