@@ -11,12 +11,20 @@ Are you involved or interested in statistics, machine learning, programming, geo
 If so, consider joining the Earth Lab data meetup group.
 We meet weekly and discuss and work on contemporary problems in the Earth data
 science.
+No expertise is necessary to join.
 
 * **Who:** Interdisciplinary Scientists & Researchers
 * **When?** Every Friday: 1-2 PM
 * **Where:** CU Boulder East Campus - Room S372 in the MacAllister Building (SEEC) in the Research Park on East Campus to
 
-## Example Topics
+## How to join
+
+Go to the [Earth Lab data meetup GitHub repository](https://github.com/earthlab/meetup) to see our upcoming topics and get involved!
+To receive notifications, just click "Watch" in the upper right hand corner of the repository page. 
+
+![](https://help.github.com/assets/images/help/notifications/watcher_picker.gif)
+
+## Topics
 
 - Explore data or analysis problems: The group harnesses shared energy and experience to
  tackle and solve common or unique issues.
@@ -24,6 +32,3 @@ science.
 ranging from extreme value theory, parallel computing to bayesian statistics.
 - Paper discussions revolving around quantitative/data issues in the natural sciences
 
-No expertise is necessary to join.
-Go to the [Earth Lab data meetup GitHub repository](https://github.com/earthlab/meetup) to see our upcoming topics and
- to get involved!
