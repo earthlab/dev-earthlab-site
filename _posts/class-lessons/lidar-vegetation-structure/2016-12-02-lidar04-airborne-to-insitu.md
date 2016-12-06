@@ -1,8 +1,10 @@
 ---
 layout: single
-title: 'Airborne to In Situ'
+title: 'Comparing Tree Height Measured on the Ground to Tree Height Estimates using Airborne lidar Data'
 authors: [Leah Wasser]
-excerpt: "COmparing airborne to in situ."
+excerpt: "This lesson uses several interactive plots that illustrate differences
+between tree height measured on the ground to tree height estimated using airborne
+lidar data."
 category: [course-materials]
 class-lesson: ['veg-structure-lidar']
 permalink: /course-materials/lidar-airborne-to-insitu
@@ -20,8 +22,9 @@ order: 4
 
 # Learning Outcomes
 
-* Be able to describe what discrete lidar system measures.
-* Be able to describe the format of data that a discrete return lidar system produces.
+* Be able to describe the sources of error associated with measuring tree height on the ground (human measurements).
+* Be able to describe the sources of error associated with estimating tree height using airborne lidar data.
+* Understand the concept of uncertainty and be able to describe why it's important in scientific studies.
 
 ****
 
@@ -30,6 +33,9 @@ order: 4
 [Download Lesson Data](#){: .btn .btn--large}
 </div>
 
+## Measuring Trees
+* Talk about how trees are measured on the ground 
+*
 
 ## CHM vs InSitu Differences Differences
 
