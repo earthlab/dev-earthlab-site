@@ -1,8 +1,8 @@
 ---
 layout: single
 title: "Code Chunks in R Markdown"
-excerpt: 'This tutorial cover how to create an R Markdown file in R and then
-render it to html using knitr.'
+excerpt: 'This tutorial cover how code chunks are written and formatted within an
+R Markdown file in R Studio.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
@@ -15,18 +15,15 @@ comments: false
 order: 4
 ---
 
-
-## Getting Started
-This tutorial will introduce you to working with R markdown files in `R` and
-`R Studio`. We will create an R Markdown file and render it to html using the
-`knitr` package.
+Next, we will talk about code chunks in `R markdown` files.
 
 <div class='notice--success' markdown="1">
 
 # Learning Objectives
 At the end of this activity, you will:
 
-*
+* Be able to add code to a code chunk in an .rmd file
+* Be able to add options to a code chunk in R Studio
 
 ## Things You’ll Need To Complete This Tutorial
 
@@ -37,28 +34,16 @@ your computer to complete this tutorial.
 
 * **knitr:** `install.packages("knitr")`
 * **rmarkdown:** `install.packages("rmarkdown")`
-* **raster:** `install.packages("raster")`
-* **rgdal:** `install.packages("rgdal")`
-
-### Download Data
-
-Download the data below and place it in a directory: `~/Documents/data/earth-analytics`
-
-{% include/dataSubsets/_data_Data-Institute-16-TEAK.html %}
 
 </div>
 
-We have we have already learned that an RMD document contains three parts
+We have we have already learned that an `.Rmd` document contains three parts
 
-1. A YAML header
+1. A `YAML` header
 2. Text chunks in markdown syntax that describe your processing workflow or are the text for your report.
 3. Code chunks that process, visualize and/or analyze your data.
 
-In this tutorial, we cover code chunks in `.Rmd` files.
-
-
-<a class="btn btn-info" href="http://rmarkdown.rstudio.com/authoring_basics.html" target="_blank"> Learn More - RStudio Markdown Overview</a>
-
+Let's break down code chunks in `.Rmd` files.
 
 
 <i class="fa fa-star"></i> **Data Tip**: You can add code output or an R object
@@ -68,12 +53,12 @@ name to markdown segments of an RMD. For more, view this
 
 ## Code chunks
 
-Code chunks are the segments of your markdown document where you place  your `R`
-code. All code chunks start and end with<code>```</code>  -- three backticks or
+Code chunks in an R Markdown document contain your `R` code. All code chunks
+ start and end with <code>```</code> -- three backticks or
 graves. On your keyboard, the backticks can be found on the same key as the
 tilde (~). Graves are not the same as an apostrophe!
 
-The initial line of a code chunk must appear as:
+A code chunk looks like this:
 
 <pre><code>
 ```{r chunk-name-with-no-spaces}
@@ -81,10 +66,10 @@ The initial line of a code chunk must appear as:
  ```
  </code></pre>
 
-The `r` part of the chunk header specifies the code language being used. Specifying
-the language is mandartory. Next to the `{r}`, there is a chunk name. The chunk
-name is not required for however, it is good practice to give each
-chunk a unique name as it is required for more advanced knitting approaches.
+The first line: <code>```{r chunk-name-with-no-spaces}</code> contains the language (`r`) in this case, and the name of the chunk. Specifying
+the language is mandatory. Next to the `{r}`, there is a chunk name. The chunk
+name is not necessarily required however, it is good practice to give each
+chunk a unique name to support more advanced knitting approaches.
 
 <div class="notice" markdown="1">
 
@@ -94,25 +79,23 @@ Continue working on your document. Below the last section that you've just added
 create a code chunk that loads the packages required to work with raster data
 in R, and sets the working directory.
 
-<pre><code>```{r setup-read-data }
-   library(rgdal)
-   library(raster)
+<pre>
+<code>
+ ```{r setup-read-data }
 
-   # set working directory to ensure R can find the file we wish to import
-   setwd("~/Documents/data/NEONDI-2016/")
+   1+2
 
- ```</code></pre>
+ ```
+ </code>
+ </pre>
 
-# Do we want to have a lesson like this?
-(For help setting the working directory, see the NEON Data Skills tutorial
-<a href="http://neondataskills.org/R/Set-Working-Directory" target="_blank">*Set A Working Directory in R*</a>.)
 
-Then, add another chunk that loads the `TEAK_lidarDSM` raster file.
+Then, add another chunk that does something?? .
 
 <pre><code>```{r load-dsm-raster }
 
-   # import dsm
-   teak_dsm <- raster("NEONdata/D17-California/TEAK/2013/lidar/TEAK_lidarDSM.tif")
+   # code here
+   code here...
 
  ```</code></pre>
 
@@ -129,10 +112,17 @@ available for these options.
 
 </div>
 
+## Code Format
+
+Notice that in each of our code chunks, we've introduced `comments`. Comments
+are lines in our code that are not run by `R`. However they allow us to describe
+the intent of our code. Get in the habit of adding comments as you code. We will discuss this further when we break down scientific programming in `R` in a
+later tutorial.
+
 ## Code chunk options
 
-You can also add arguments or options to each code chunk. These arguments allow
-you to customize how or if you want code to be
+You can add arguments or options to each code chunk. These arguments allow
+us to customize how or if you want code to be
 processed or appear on the output HTML document. Code chunk arguments are added on
 the first line of a code
 chunk after the name, within the curly brackets.
@@ -160,7 +150,8 @@ evaluated when the RMD file is knit, however only the output is rendered on the
 output document.
 * `results=hide`: The code chunk will be evaluated but the results or the code
 will not be rendered on the output document. This is useful if you are viewing the
-structure of a large object (e.g. outputs of a large `data.frame`).
+structure of a large object (e.g. outputs of a large `data.frame` which is
+  the equivalent of a spreadsheet in `r`).
 
 Multiple code chunk options can be used for the same chunk. For more on code
 chunk options, read
@@ -168,7 +159,7 @@ chunk options, read
 or the
 <a href="http://yihui.name/knitr/demo/output/" target="_blank"> knitr documentation</a>.
 
-<div id="challenge" markdown="1">
+<div class="success" markdown="1">
 ## Activity: Add More Code to Your R Markdown
 
 Update your RMD file as follows:
@@ -188,13 +179,3 @@ For help opening and plotting raster data in `R`, see the NEON Data Skills tutor
 
 We will knit this document to HTML in the next tutorial.
 </div>
-
-Now continue on to the
-[next tutorial]({{site.baseurl}}/tutorial-series/pre-institute3/rmd03)
-to learn how to knit this document into a HTML file.
-
-## Answers to the Default Text Markdown Syntax Questions
-
-* Are any words in bold? - Yes, “Knit” on line 10
-* Are any words in italics? - No
-* Are any words highlighted as code? - Yes, “echo = FALSE” on line 22

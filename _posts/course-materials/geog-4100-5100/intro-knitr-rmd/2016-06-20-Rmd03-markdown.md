@@ -7,7 +7,7 @@ authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/markdown-primer
-nav-title: 'Markdown Primer'
+nav-title: 'Intro 2 Markdown'
 sidebar:
   nav:
 author_profile: false
@@ -15,8 +15,8 @@ comments: false
 order: 3
 ---
 
-
-This tutorial covers how create and format markdown (`.md`) files.
+Here, we break down the basic syntax for a markdown file. We also cover how to
+create and format markdown (`.md`) files.
 
 <div class="notice--success" markdown="1">
 # Learning Objectives
@@ -30,10 +30,10 @@ At the end of this activity, you will be able to:
 
 ## Markdown in Rmd files
 
-An R markdown file can also contains text - written using the markdown syntax.
+An R markdown file can contain text written using the markdown syntax.
 Markdown text, can be whatever you want. It may describe the data that you are
 using, how it's being processed and what the outputs are. You may even add some
- information that interprets the outputs.
+text that interprets or discusses the outputs.
 
 When you render your document to HTML, this markdown will appear as text on the
 output HTML document. We will learn about the markdown syntax next.
@@ -44,7 +44,8 @@ output HTML document. We will learn about the markdown syntax next.
 Markdown is a human readable syntax for formatting text documents. Markdown can
 be used to produce nicely formatted documents including
 pdf's, web pages and more. Think of it like a word processing tool, like Microsoft
-Word of Google Docs. Ig Google docs, you can bold text and add headings. You can
+Word of Google Docs. In Google docs, you can make text bold and add headings that
+visually break up your document. You can
 do the same in markdown, however you do it using a particular format or `syntax`.
 
 
@@ -64,6 +65,9 @@ Markdown is simple plain text, that is styled using special characters, includin
 * <code>` </code>: code blocks
 
 Let's review some basic markdown syntax.
+
+
+<a class="btn btn-info" href="http://rmarkdown.rstudio.com/authoring_basics.html" target="_blank"> Learn More - RStudio Markdown Overview</a>
 
 ### Plain Text
 
@@ -87,10 +91,12 @@ To add emphasis to other text use **bold** or *italics*.
 Notice that this sentence uses both a code highlight "``", bold and italics.
 As a rendered markdown chunk, it looks like this:
 
-```
+***
+
 The use of the highlight ( `text` ) will be reserve for denoting code when
 used in text. To add emphasis to other text use **bold** or *italics*.
-```
+
+***
 
 ### Horizontal Lines (rules)
 
@@ -104,9 +110,9 @@ Below is the rule rendered:
 
 ## Section Headings
 
-We create a heading using the pound (#) sign. For the headers to render
+We create a heading using the pound (`#`) sign. For the headers to render
 properly there must be a space between the # and the header text.
-Heading one is 1 pound sign, heading two is 2 pound signs, etc as follows:
+Heading one is 1 `#` sign, heading two is 2 `##` signs, etc as follows:
 
 ## Heading two
 	## Heading two
@@ -151,8 +157,8 @@ the bio and short research description that you wrote last week in markdown synt
 the RMD file.
 3. Between your profile and the research descriptions, add a header that says
 **About My Project** (or something similar).
-4. Add a new header stating **Week 3 Activity** and text below that explaining
-that this page demonstrates using some of the NEON Teakettle LiDAR data products
+4. Add a new header XXX **XXX Activity** and text below that explaining
+that this page demonstrates using some of the **XXX XXX XXX data products**
 in R. The wording of this text should clearly describe the code and outputs that
 you will be adding the page.
 
@@ -161,3 +167,10 @@ you will be adding the page.
 *Got questions? No problem. Leave your question in the comment box below.
 It's likely some of your colleagues have the same question, too! And also
 likely someone else knows the answer.*
+
+
+## Answers to the Default Text Markdown Syntax Questions
+
+* Are any words in bold? - Yes, “Knit” on line 10
+* Are any words in italics? - No
+* Are any words highlighted as code? - Yes, “echo = FALSE” on line 22

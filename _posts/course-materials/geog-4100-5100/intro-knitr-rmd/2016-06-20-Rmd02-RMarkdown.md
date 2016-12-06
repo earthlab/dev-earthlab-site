@@ -17,7 +17,7 @@ order: 2
 
 
 ## Getting Started
-This tutorial will introduce you to working with R markdown files in `R` and
+Let's dive deeper into the R Markdown file format. This tutorial will introduce you to working with R markdown files in `R` and
 `R Studio`. We will create an R Markdown file and render it to html using the
 `knitr` package.
 
@@ -40,21 +40,13 @@ your computer to complete this tutorial.
 
 * **knitr:** `install.packages("knitr")`
 * **rmarkdown:** `install.packages("rmarkdown")`
-* **raster:** `install.packages("raster")`
-* **rgdal:** `install.packages("rgdal")`
-
-### Download Data
-
-Download the data below and place it in a directory: `~/Documents/data/earth-analytics`
-
-{% include/dataSubsets/_data_Data-Institute-16-TEAK.html %}
 
 </div>
 
 ## Create a new RMarkdown file in RStudio
 
-Watch the 6:38 minute video below to learn about the steps to converting
-an R Markdown file to HTML (or other formats) using `knitr` in RStudio.
+Watch the 6:38 minute video below to see how we convert
+an R Markdown file to HTML (or other formats) using `knitr` in `RStudio`.
 **NOTE:** The text size in the video is small so you may want to watch the video in
 full screen mode.
 
@@ -113,24 +105,27 @@ There are three parts to an `.RMD` file:
 * **Code chunks:** Chunks of R code that can be run and also can be rendered
 using `knitr` to an output document.
 
-In the next tutorial, we will explore each section type listed above.
+Next, let's break down each of the parts listed above.
 
-## 1. Header -- YAML block
+## 1. Header -- YAML Header (Front Matter)
 
-An R Markdown file always starts with header written using
+An R Markdown file always starts with a header written using
 <a href="https://en.wikipedia.org/wiki/YAML" target="_blank">YAML syntax</a>.
-There are four default elements in the RStudio generated YAML header:
+This header is sometimes referred to as the `front matter`.
+
+There are four default elements in the RStudio YAML header:
 
 * **title:** the title of your document. Note, this is not the same as the file name.
 * **author:** who wrote the document.
 * **date:** by default this is the date that the file is created.
 * **output:** what format will the output be in. We will use HTML.
 
-Note that a YAML header (also known as front matter) begins and ends with three
-dashes `---`. A YAML header may be structured differently depending upon how your are using it. Learn more on the
+Note that a YAML header begins and ends with three
+dashes `---`. Also notice that the value for each element, title, author, etc,
+is in quotes `"value-here"` next to the element.  A YAML header may be structured differently depending upon how your are using it. Learn more on the
 <a href="http://rmarkdown.rstudio.com/authoring_quick_tour.html#output_options" target="_blank"> R Markdown documentation page</a>.
 
-The YAML may look like this:
+Example YAML header in an R Studio R Markdown file:
 
 ```xml
 ---

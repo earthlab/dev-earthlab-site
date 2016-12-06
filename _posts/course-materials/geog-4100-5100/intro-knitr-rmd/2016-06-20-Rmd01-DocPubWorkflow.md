@@ -14,7 +14,6 @@ comments: false
 order: 1
 ---
 
-
 In this tutorial we will us the `knitr` and `rmarkdown` packages in
 `RStudio` to create a report that links our analysis, results and associated data.
 
@@ -31,17 +30,38 @@ At the end of this activity, you will be able to:
 
 ## Why Open Science
 
-# more about why this is important. link tot he open science slideshow? ...
+Open science in a nutshell is about making scientific methods, data and outcomes
+available to everyone. It can be broken down into several parts (<a href="http://www.openscience.org/blog/?p=269" target="_blank">Gezelter 2009</a>):
 
-## Documentation Is Important
-In this tutorial, we will learn about the `R Markdown` file format. We will use
-the `rmarkdown` and `knitr` package to write rmarkdown files in `Rstudio` and
+* Transparency in experimental methodology, observation, and collection of data.
+* Public availability and reusability of scientific data.
+* Public accessibility and transparency of scientific communication.
+* Using web-based tools to facilitate scientific collaboration.
+
+In this tutorial, we are not going to focus on all aspects of open science as
+listed above. However, we will introduce one tool that can be used to make our
+workflows:
+
+1. More transparent and
+2. More available and accesible to the public and our colleages.
+
+In this tutorial, we will learn how to document our work - by connecting data,
+methods and outputs in one or more reports or documents. We will introduce the
+`R Markdown` file format which can be used to generate reports that connect our
+data, code (methods used to process the data) and outputs. We will use the
+`rmarkdown` and `knitr` package to write rmarkdown files in `Rstudio` and
 publish them in different formats (html, pdf, etc).
 
 <a class="btn btn-info" href="http://neon-workwithdata.github.io/slide-shows/share-publish-archive-slideshow.html" target= "_blank"> View Slideshow: Share, Publish & Archive -  from the Reproducible Science Curriculum</a>
 
-
 ## About R Markdown
+
+Simply put, `.rmd` is a text based file format that allows you to include both
+descriptive text, code blocks and code output. You can run the code in `R` and
+using a package called `knitr` (which we will talk about next) you can export the
+text formated .rmd file to a nicely rendered, shareable format like pdf or html.
+When you knit (or use `knitr`) the code is run and so your code outputs including
+plots, and other figures appear in the rendered document.
 
 > “R Markdown (.rmd) is an authoring format that enables easy creation of dynamic
 documents, presentations, and reports from R. It combines the core syntax of
@@ -51,21 +71,25 @@ documents are fully reproducible (they can be automatically regenerated whenever
 underlying R code or data changes)."
 -- <a href="http://rmarkdown.rstudio.com/" target="_blank">RStudio documentation</a>.
 
-Simply put, .rmd is a text based file format that allows you to include both
-descriptive text, code blocks and code output. You can run the code in `R` and
-using a package called `knitr` (which we will talk about next) you can export the
-text formated .rmd file to a nicely rendered, shareable format like pdf or html.
-When you knit (or use `knitr`) the code is run and so your code outputs including
-plots, and other figures appear in the rendered document.
 
 We use R Markdown (.rmd) files to document workflows and to share data processing,
 analysis and visualization code & outputs.
 
 ## RMD is Beneficial to your colleagues
-The link between data, code and results make `rmd` powerful. You can share your
-entire workflow with your colleagues and they can quickly see your process.
+The link between data, code and results make `.rmd` powerful. You can share your
+entire workflow with your colleagues and they can quickly see your process. You
+can also write reports using `.rmd` files which contain code and data
+analysis results. To enrich the document, you can add text, just like you would
+in a word document that describes your workflow, discusses your results and
+presents your conclusions - along side your analysis results.
 
-## RMD is Beneficial to You Too
+## RMD is Beneficial to You & Your Future Self
+
+R Markdown as a format is an efficient tool. If you need to make changes to your
+workflow, you can simply modify the report and re-render (or knit) the report.
+This creates an efficient workflow. Your future self will appreciate it too.
+R Markdown provides documentation for you to see what code you used to create a
+figure or to analyze the data.
 
 <i class="fa fa-star"></i> **Data Tip:** Many of the Earth Lab lessons- including
 this one - were created using Rmarkdown!
@@ -91,9 +115,8 @@ share and publish code online.
 
 ## Knitr
 
-We use the `R` `knitr` package to create easy to read documents from `.rmd`
-files that contain both the code, and code outputs and any additional descriptive
-text that we'd like to include.
+We use the `R` `knitr` package to render our markdown and create easy to read documents from `.rmd`
+files.We will cover knitr later in this series.
 
 <figure class="half">
 	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/rmd-file.png">
@@ -106,6 +129,3 @@ text that we'd like to include.
 	Markdown script (right).
 	</figcaption>
 </figure>
->The knitr package was designed to be a transparent engine for dynamic report
-generation with R --
-<a href="http://yihui.name/knitr/" target="_blank"> Yihui Xi -- knitr package creator</a>
