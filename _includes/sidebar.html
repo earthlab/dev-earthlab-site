@@ -97,10 +97,14 @@
 
 {% unless page.layout contains 'single' %}
   {% for member in site.data.libs %}
-    {% if page.language contains member.lang %}
+  {% if member.libs %}
+    {% if page.language == member.lang %}
       <ul>
         <li><span class="nav__sub-title">{{ member.lang }} library</span>
           <ul>
+
+
+
         {% for lib in member.libs %}
           {% assign counter = 0 %}
        <!-- this code counts the number of posts associated with the member -->
@@ -111,6 +115,7 @@
             {% endfor %}
 
             {% if page.library == lib %}
+            {{ page.library }}
             <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}/{{ lib }} class='active'>{{ lib }} ({{ counter }})</a></li>
             {% else %}
             <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}/{{ lib }}>{{ lib }} ({{ counter }})</a></li>
@@ -118,6 +123,7 @@
         {% endfor %}
       </ul>
       {% endif %}
+    {% endif %}  
   {% endfor %}
 {% endunless %}
 <!-- end language side bar nav -->

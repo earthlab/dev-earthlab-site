@@ -82,6 +82,13 @@ Programs such as:
 are often used to perform this classification. Once the points are classified, they can be used to derive various
 LiDAR data products.
 
+<figure>
+<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/lidar/Treeline_ScannedPoints.png"><img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/lidar/Treeline_ScannedPoints.png"></a>
+<figcaption>A cross section of point clouds associated with a riparian landscape.
+The green points have been classified as vegetation. The orange points are classified
+as ground. Image Source: Leah Wasser, NEON </figcaption>
+</figure>
+
 <Image - cross section, 1. unclassified points 2. classified points 3. >
 
 ## Work With Point Clouds

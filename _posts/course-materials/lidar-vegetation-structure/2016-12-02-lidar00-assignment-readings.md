@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 'Lidar Assignment & Readings'
-authors: [Leah Wasser]
+authors: [Leah Wasser, NEON Data Skills]
 excerpt: "The overview page I used at CU 5 April 2016."
 category: [course-materials]
 class-lesson: ['veg-structure-lidar']
