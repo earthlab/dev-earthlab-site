@@ -9,7 +9,7 @@ list_posts <- function() {
   md_files <- post_dir %>%
     file.path(list.files(post_dir, pattern = "\\.md",
                          recursive = TRUE, include.dirs = TRUE))
-  md_files
+  md_files[!grepl("readme.md", md_files)]
 }
 
 yaml2df <- function(file, field) {
@@ -32,8 +32,8 @@ yaml2df <- function(file, field) {
     return(data.frame(value = NULL, slug = NULL))
   }
   
-  field_is_empty <- is.null(yaml_list[[field]])
-  if (field_is_empty) {
+  empty_field <- is.null(yaml_list[[field]]) | length(yaml_list[[field]]) == 0
+  if (empty_field) {
     warning(paste(field, "has no entries in", file, "\n"))
     return(data.frame(value = NULL, slug = NULL))
   }
