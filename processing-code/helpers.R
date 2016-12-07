@@ -12,9 +12,6 @@ list_posts <- function() {
   md_files
 }
 
-
-
-
 yaml2df <- function(file, field) {
   # extract "element" field from yaml frontmatter
   # args:
@@ -24,31 +21,25 @@ yaml2df <- function(file, field) {
   #   - data frame with file, field, and value (one row per element)
   
   first_n_lines <- read_lines(file, n_max = 100) # should contain frontmatter
-  field_colon <- paste0(field, ":")
-  field_line <- first_n_lines[grep(field_colon, first_n_lines)]
+  delims <- which(grepl(pattern = "---", x = first_n_lines))
+  yaml_list <- first_n_lines[(delims[1] + 1):(delims[2] - 1)] %>%
+    paste(collapse = "\n") %>%
+    yaml.load()
   
-  field_does_not_exist <- is.na(field_line[1])
+  field_does_not_exist <- !(field %in% names(yaml_list))
   if (field_does_not_exist) {
     warning(paste(field, "does not exist in yaml frontmatter of", file, "\n"))
     return(data.frame(value = NULL, slug = NULL))
   }
   
-  field_is_empty <- field_line == field_colon
+  field_is_empty <- is.null(yaml_list[[field]])
   if (field_is_empty) {
     warning(paste(field, "has no entries in", file, "\n"))
     return(data.frame(value = NULL, slug = NULL))
   }
   
-  # remove "field: " and square brackets
-  field_line <- gsub(pattern = paste0(field_colon, " "), 
-                     x = field_line, 
-                     replacement = "" )
-  field_line <- gsub(pattern = "\\]|\\[", x = field_line, replacement = "" )
-  
   # make a data frame with a row for each field element
-  df <- field_line %>%
-    strsplit(split = ",") %>%
-    unlist() %>%
+  df <- yaml_list[[field]] %>%
     data.frame()
   names(df) <- "value"
   
