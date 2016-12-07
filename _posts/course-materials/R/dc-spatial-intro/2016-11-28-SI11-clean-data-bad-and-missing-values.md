@@ -15,7 +15,6 @@ class-lesson: ['intro-spatial-data-r']
 author_profile: false
 comments: false
 nav-title: 'missing data'
-comments: false
 order: 11
 ---
 
