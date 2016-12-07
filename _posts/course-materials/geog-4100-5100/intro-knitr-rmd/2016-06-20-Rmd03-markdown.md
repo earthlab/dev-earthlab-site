@@ -18,7 +18,7 @@ order: 3
 Here, we break down the basic syntax for a markdown file. We also cover how to
 create and format markdown (`.md`) files.
 
-<div class="notice--success" markdown="1">
+<div class="notice--warning" markdown="1">
 # Learning Objectives
 At the end of this activity, you will be able to:
 
@@ -147,7 +147,8 @@ Does any of the markdown syntax look familiar?
 
 If you are unsure, the answers are at the bottom of this page.
 
-<div class="notice" markdown="1">
+<div class="notice--warning" markdown="1">
+
 ## Activity: R Markdown Text
 
 1. Remove the template markdown and code chunks added to the RMD file by RStudio.

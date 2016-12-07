@@ -71,7 +71,7 @@ the language is mandatory. Next to the `{r}`, there is a chunk name. The chunk
 name is not necessarily required however, it is good practice to give each
 chunk a unique name to support more advanced knitting approaches.
 
-<div class="notice" markdown="1">
+<div class="notice--warning" markdown="1">
 
 ## Activity: Add Code Chunks to Your R Markdown File
 
@@ -159,7 +159,8 @@ chunk options, read
 or the
 <a href="http://yihui.name/knitr/demo/output/" target="_blank"> knitr documentation</a>.
 
-<div class="success" markdown="1">
+<div class="notice--warning" markdown="1">
+
 ## Activity: Add More Code to Your R Markdown
 
 Update your RMD file as follows:

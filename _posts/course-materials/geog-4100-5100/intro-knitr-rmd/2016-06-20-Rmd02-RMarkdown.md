@@ -136,7 +136,8 @@ output: html_document
 ---
 ```
 
-<div class="notice--success" markdown="1">
+<div class="notice--warning" markdown="1">
+
 ## Activity: Customize your R Markdown File's Front Matter - YAML
 Customize the header of your `.Rmd` file as follows:
 
