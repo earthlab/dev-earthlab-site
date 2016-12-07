@@ -7,14 +7,15 @@
 ##################
 
 require(knitr)
-dirs <- c("course-materials/geog-4100-5100/intro-co-floods")
+dirs <- c("course-materials/geog-4100-5100/co-floods-1-intro",
+          "course-materials/geog-4100-5100/co-floods-2-data-r")
 
 #################### Set up Input Variables #############################
 # set directory that  you'd like to build
-subDir <- dirs[1]
+subDir <- dirs[2]
 
 # Inputs - Where the git repo is on your computer
-#rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
+# rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
 gitRepoPath <-"~/Documents/github/dev-earthlab-site"
 rmdRepoPath <- file.path(gitRepoPath, "_posts", subDir)# they are the same this time. 
 
