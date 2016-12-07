@@ -1,5 +1,14 @@
-- name: 'Flooding: Exploring the 2013 CO Floods With Data'
-  slug: 'intro-co-floods'
+- name: 'Part 1 Flooding: Understand Drivers and Impacts of the 2013 Colorado Floods Using Data'
+  slug: 'co-floods-1-intro'
+  description: 'MORE.'
+  authors: ['Leah Wasser', 'NEON Data Skills']
+  url:
+  active: true
+  dateCreated: 2016-12-06
+  dateModified: 2016-12-06
+
+- name: 'Part 2 Flooding: Understand Drivers and Impacts of the 2013 Colorado Floods Using Data'
+  slug: 'co-floods-2-data-r'
   description: 'MORE.'
   authors: ['Leah Wasser', 'NEON Data Skills']
   url:

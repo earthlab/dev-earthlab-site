@@ -1,28 +1,23 @@
 ---
 layout: single
-title: "Intro to the CO Floods"
+title: "Instructor Notes"
 excerpt: "."
-authors: ['Leah Wasser', 'NEON Data Skills']
+authors: ['Leah Wasser']
 category: [course-materials]
-class-lesson: ['intro-co-floods']
-permalink: /course-materials/intro-co-floods
-nav-title: 'CO Floods - Google Earth'
+class-lesson: ['co-floods-1-intro']
+permalink: /course-materials/co-floods1/instructor-notes
+nav-title: 'Instructor Notes'
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 1
+order: 2
 ---
 
 
-In early September 2013, a slow moving cold air front moved through Colorado
-intersecting with a warm, humid air front. The clash between the cold and warm
-fronts yielded heavy rain. This rain, combined with a previous record of drought,
-conditions associated with the soils in Colorado and other factors yielded and
-devastating flooding across the Front Range in Colorado, USA.
+## Setup
 
-In this classroom activity we will actively engage with different types of data
-that scientifically quantifies / documents the flood events in different ways.
+What they will need.
 
 
 <div class='notice--success' markdown="1">
@@ -46,7 +41,7 @@ Data link here to google earth kml.
 
   </div>
 
-## Exploring Flood Damage
+## Intro to Co Floods
 
 <figure>
  <a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-co-floods/N_St_Vrain_before_after_CreditBoulderCo.jpg">
@@ -91,13 +86,3 @@ directions of your instructor (Google Doc, word document, etherpad, etc.).
 * Was the cause - caused by something else? IE did something else DRIVE the cause?
 * Create a diagram that illustrates the causes and effects (or drivers and impacts) of the flood. Is it a linear diagram? Is it quantifiable?
 </div>
-
-
-
-## Precipitation
-
-<i class="fa fa-star"></i> **Definition:** Precipitation is the moisture that
-falls from clouds including rain, hail and snow.
-{: .notice}
-
-<iframe width="100%" height="400" frameborder="0" scrolling="no" src="https://plot.ly/~NEONDataSkills/6.embed"></iframe>
