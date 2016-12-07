@@ -1,0 +1,270 @@
+---
+layout: slides
+title: 'How To Create a Slideshow'
+author: [Jennifer Balch]
+categories: [slide-shows]
+class-lesson:
+---
+
+name: inverse
+class: center, middle, inverse
+
+# Intro Slide
+
+_Leah Wasser, Sepideh Dadashi, Jennifer Balch_
+
+---
+
+class: center, middle, inverse
+
+## New slide with an image of Bill
+
+![caption here]({{ site.url }}{{ site.baseurl }}/images/slide-shows/geog-4100-5100/wk1-intro-earth-analytics/image2.png)
+
+---
+class: center, middle
+
+## Use the Class element above to specify centering AND background color
+
+Here we have plain white background
+
+![caption here]({{ site.url }}{{ site.baseurl }}/images/slide-shows/geog-4100-5100/wk1-intro-earth-analytics/image2.png)
+
+---
+class:
+background-image: url({{ site.url }}{{ site.baseurl }}/images/slide-shows/geog-4100-5100/wk1-intro-earth-analytics/image10.jpg)
+
+### Add a background image using
+
+```md
+background-image: url(path-to-image)
+
+this doesn't work if the image is black. we will need to test this further.
+```
+
+---
+
+# Slide Header
+
+Here is a slide that is full width.
+```md
+.full-width[
+Text goes here
+]
+```
+---
+
+# Slide with Two Columns
+
+.one-half[
+Column One is here
+
+]
+
+.one-half[
+Column Two is here
+]
+
+---
+Here is the code for a two column slide
+```
+.one-half[
+Column One is here
+]
+
+.one-half[
+Column Two is here
+]
+```
+---
+
+# Markdown 101
+
+.one-half[
+- `*italics*` is *italics*
+- `**bold**` is **bold**
+- `***bold italics***` is ***bold italics***
+]
+
+.one-half[
+Lists:
+
+```
+- List item 1
+- List item 2
+  - Nested list item
+
+1. Enumerated list
+2. Second item
+  - We can mix both
+```
+]
+
+---
+
+# Quotes
+
+```
+> Text goes here
+```
+
+> Text goes here
+
+---
+
+# Syntax highlighting
+
+``` md
+``` R
+<your code here>
+```
+```
+
+renders as
+
+``` R
+random_thing <- function(x, r, ...) {
+  return(r(x, ...))
+}
+
+plot(random_thing(100, runif))
+```
+
+You can also put code inline, using backticks:
+
+``` md
+This is `inline` code.
+```
+
+---
+
+# Tables
+
+.two-third[
+Markdown can do tables:
+
+~~~ md
+|   Animal | Diet      | Fuzzy? |
+|---------:|:----------|:------:|
+| Hedgehog | rings     |   no   |
+|   Racoon | garbage   |  meh   |
+|      Cat | hairballs |  yup   |
+~~~
+]
+
+.one-third[
+This renders as:
+
+|   Animal | Diet      | Fuzzy? |
+|---------:|:----------|:------:|
+| Hedgehog | rings     |   no   |
+|   Racoon | garbage   |  meh   |
+|      Cat | hairballs |  yup   |
+]
+
+---
+
+# Notes
+
+.one-third[
+Notes are everything that comes below `???`. Press **P** to toggle presenter
+mode.
+]
+
+.two-third[
+~~~ md
+Notes are everything that comes below `???`.
+Press **P** to toggle presenter mode.
+
+???
+
+These are the notes, and *they can* be in markdown too.
+~~~
+]
+
+???
+
+These are the notes, and *they can* be in markdown too.
+
+**It is very important** that the notes are the *last* things on the slide.
+
+Look a table!
+
+| x | y |
+|:--|:--|
+| 1 | 2 |
+| 3 | 4 |
+
+---
+
+# Columns
+
+.two-third[
+
+It is possible to have columns or various widths in the presentation. The
+columns should be wrapped the following way:
+~~~
+.one-third[
+  content
+]
+~~~
+
+You can chain columns in any way you want, *e.g.* 1/3 then 2/3, 1/4 then 1/2
+then 1/2. As long as it sums to one, it's fine.
+
+]
+
+.one-third[
+**Possible values**
+
+- `.one-third`
+- `.two-third`
+- `.one-half`
+- `.one-fourth`
+- `.three-fourth`
+- `.full-width`
+]
+
+---
+
+# Nested columns
+
+.three-fourth[
+
+This is a three-fourth column, and splitted in two.
+
+.one-half[
+~~~ R
+for (i in c(1:10)) {
+  print(i)
+}
+~~~
+]
+.one-half[
+~~~ julia
+for i in 1:10
+  print(i)
+end
+~~~
+]
+
+Then the column resumes after the split.
+
+]
+
+.one-fourth[
+**It works!**
+]
+
+
+---
+
+# Image Captions
+
+~~~ md
+![D. Lafrenière et al., ApJ Letters](https://dataoneorg.github.io/dataone_lessons/lessons/01_management/images/data-loss.jpg)
+*D. Lafrenière et al., ApJ Letters*
+~~~
+
+![D. Lafrenière et al., ApJ Letters](https://dataoneorg.github.io/dataone_lessons/lessons/01_management/images/data-loss.jpg)
+*D. Lafrenière et al., ApJ Letters*
