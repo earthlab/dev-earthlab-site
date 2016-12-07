@@ -1,3 +1,12 @@
+- name: 'Flooding: Exploring the 2013 CO Floods With Data'
+  slug: 'intro-co-floods'
+  description: 'MORE.'
+  authors: ['Leah Wasser', 'NEON Data Skills']
+  url:
+  active: true
+  dateCreated: 2016-12-06
+  dateModified: 2016-12-06
+
 - name: 'Introduction to Open Science Teaching Activity'
   slug: 'intro-open-science'
   description: 'A hands-on activity where students review a project for
