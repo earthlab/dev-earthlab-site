@@ -111,11 +111,11 @@ for (files in rmd.files) {
 
   # copy .Rmd file to data working directory
   file.copy(from = files, to=wd, overwrite = TRUE)
-  input=basename(files)
+  current.file=basename(files)
 
   # setup path to images
   # print(paste0(imagePath, sub(".Rmd$", "", basename(input)), "/"))
-  fig.path <- print(paste0(imagePath, sub(".Rmd$", "", input), "/"))
+  fig.path <- print(paste0(imagePath, sub(".Rmd$", "", current.file), "/"))
 
 
   opts_chunk$set(fig.path = fig.path)
@@ -126,10 +126,10 @@ for (files in rmd.files) {
   #render_jekyll(highlight = "rouge")
   # create the markdown file name - add a date at the beginning to Jekyll recognizes
   # it as a post
-  mdFile <- file.path(gitRepoPath,postsDir, paste0(add.date , sub(".Rmd$", "", input), ".md"))
+  mdFile <- file.path(gitRepoPath,postsDir, paste0(add.date , sub(".Rmd$", "", current.file), ".md"))
 
   # knit Rmd to jekyll flavored md format
-  knit(input, output = mdFile, envir = parent.frame())
+  knit(current.file, output = mdFile, envir = parent.frame())
 
   # COPY image directory, rmd file OVER to the GIT SITE###
   # only copy over if there are images for the lesson
