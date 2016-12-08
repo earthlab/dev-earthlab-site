@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 USGS Stream Discharge data in R to better understand the drivers and impacts of 
 the 2013 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-lastModified: 2016-12-07
+lastModified: 2016-12-08
 category: [course-materials]
 class-lesson: ['co-floods-2-data-r']
 permalink: /course-materials/co-floods-USGS-stream-discharge-r
@@ -342,7 +342,7 @@ sum(is.na(discharge$datetime))
 hist(discharge$disValue)
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-rUSGS-Stream-Discharge-In-R/no-data-values-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-r/USGS-Stream-Discharge-In-R/no-data-values-1.png)
 
 ```r
 summary(discharge$disValue)
@@ -373,7 +373,7 @@ stream.discharge.30yrs  <- ggplot(discharge, aes(datetime, disValue)) +
 stream.discharge.30yrs 
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-rUSGS-Stream-Discharge-In-R/plot-flood-data-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-r/USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
 
 #### Questions: 
 
@@ -412,7 +412,7 @@ stream.discharge.3mo
 ## Warning: Removed 10963 rows containing missing values (geom_point).
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-rUSGS-Stream-Discharge-In-R/define-time-subset-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-r/USGS-Stream-Discharge-In-R/define-time-subset-1.png)
 
 We get a warning message because we are "ignoring" lots of the data in the
 data set.
@@ -451,7 +451,7 @@ disPlot.plotly <- ggplot(data=discharge.aug.oct2013,
 disPlot.plotly
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-rUSGS-Stream-Discharge-In-R/plotly-discharge-data-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-r/USGS-Stream-Discharge-In-R/plotly-discharge-data-1.png)
 
 ```r
       
@@ -464,16 +464,16 @@ disPlot.plotly <- disPlot.plotly +
 disPlot.plotly
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-rUSGS-Stream-Discharge-In-R/plotly-discharge-data-2.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-r/USGS-Stream-Discharge-In-R/plotly-discharge-data-2.png)
 
 ```r
 
 # view plotly plot in R
 ggplotly(disPlot.plotly)
 ## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
-## Warning in normalizePath(f2): path[1]="./webshoteba8ad423d.png": No such
+## Warning in normalizePath(f2): path[1]="./webshot736812752e.png": No such
 ## file or directory
-## Warning in file(con, "rb"): cannot open file './webshoteba8ad423d.png': No
+## Warning in file(con, "rb"): cannot open file './webshot736812752e.png': No
 ## such file or directory
 ## Error in file(con, "rb"): cannot open the connection
 ```
