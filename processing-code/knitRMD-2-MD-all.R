@@ -8,11 +8,12 @@
 
 require(knitr)
 dirs <- c("course-materials/geog-4100-5100/co-floods-1-intro",
-          "course-materials/geog-4100-5100/co-floods-2-data-r")
+          "course-materials/geog-4100-5100/co-floods-2-data-r",
+          "course-materials/geog-4100-5100/intro-knitr-rmd")
 
 #################### Set up Input Variables #############################
 # set directory that  you'd like to build
-subDir <- dirs[2]
+subDir <- dirs[3]
 
 # Inputs - Where the git repo is on your computer
 # rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
@@ -20,7 +21,7 @@ gitRepoPath <-"~/Documents/github/dev-earthlab-site"
 rmdRepoPath <- file.path(gitRepoPath, "_posts", subDir)# they are the same this time. 
 
 # jekyll will only render md posts that begin with a date. Add one.
-add.date <- "2016-12-06-SI"
+add.date <- "2016-12-06-"
 
 # set working dir - this is where the data are located
 wd <- "~/Documents/data"
@@ -90,7 +91,10 @@ unlink(file.path(gitRepoPath, imagePath, "*"), recursive = TRUE)
 
 
 # get a list of files to knit / purl
-rmd.files <- list.files(rmdRepoPath, pattern="*.Rmd", full.names = TRUE )
+rmd.files <- list.files(rmdRepoPath, 
+                        pattern="\\.Rmd$", 
+                        full.names = TRUE,
+                        ignore.case = F)
 
 #################### Set up Image Directory #############################
 
