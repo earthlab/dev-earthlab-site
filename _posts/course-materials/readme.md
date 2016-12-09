@@ -12,3 +12,20 @@ ordered by the order value.
 
 
 NOTE: if there are duplicate order values - ie two posts have order:2 then you'll get weird duplication of navigation at the bottom!
+
+
+
+
+## Format Rules
+
+**Header block on course lessons:**
+
+```md
+<div class='notice--success' markdown="1"> </>
+```
+
+**Challenge Activities**
+
+```md
+<div class="notice--warning" markdown="1">
+```
