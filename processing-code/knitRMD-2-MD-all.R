@@ -7,6 +7,8 @@
 ##################
 
 require(knitr)
+
+
 dirs <- c("course-materials/earth-analytics/co-floods-1-intro",
           "course-materials/earth-analytics/co-floods-2-data-r",
           "course-materials/earth-analytics/intro-knitr-rmd",
@@ -22,13 +24,15 @@ post.dir <- post.dirs[1]
 # set directory that  you'd like to build
 subDir <- dirs[5]
 
+
 # Inputs - Where the git repo is on your computer
 # rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
 gitRepoPath <-"~/Documents/github/earthlab.github.io"
-rmdRepoPath <- file.path(gitRepoPath, post.dir, subDir)# they are the same this time. 
+rmdRepoPath <- file.path(gitRepoPath, post.dir, subDir)# they are the same this time.
 
 # jekyll will only render md posts that begin with a date. Add one.
 add.date <- ""
+
 
 # set working dir - this is where the data are located
 wd <- "~/Documents/earth-analytics/"
@@ -98,8 +102,8 @@ unlink(file.path(gitRepoPath, imagePath, "*"), recursive = TRUE)
 
 
 # get a list of files to knit / purl
-rmd.files <- list.files(rmdRepoPath, 
-                        pattern="\\.Rmd$", 
+rmd.files <- list.files(rmdRepoPath,
+                        pattern="\\.Rmd$",
                         full.names = TRUE,
                         ignore.case = F)
 
@@ -109,19 +113,19 @@ rmd.files <- list.files(rmdRepoPath,
 # rmd.files <- rmd.files[3]
 
 for (files in rmd.files) {
-  
+
   # copy .Rmd file to data working directory
   file.copy(from = files, to=wd, overwrite = TRUE)
   current.file=basename(files)
-  
+
   # setup path to images
   # print(paste0(imagePath, sub(".Rmd$", "", basename(input)), "/"))
   # forcing the trailing "/" with paste0 so images render to the right directory
   fig.path <- paste0(file.path(imagePath, sub(".Rmd$", "", current.file)),"/")
-  
+
   # clean out images in the working directory
   unlink(file.path(wd, imagePath, "*"))
-  
+
   # make sure image subdir exists in the GIT REPO
   # then clean out image subdir on git if it exists
   # note this will fail if the sub dir doesn't exist
@@ -133,58 +137,56 @@ for (files in rmd.files) {
     dir.create(file.path(gitRepoPath, fig.path), recursive = T)
     print("git image directories created!")
   }
-  
+
+
   # might be able to combine these into one. testing.
   opts_chunk$set(fig.path = fig.path,
                  fig.cap = " ",
                  collapse = T)
-  
+
   # opts_chunk$set(fig.path = fig.path)
   # opts_chunk$set(fig.cap = " ")
   # opts_chunk$set(collapse = T )
-  
+
   # render jekyll flavor md
   render_markdown(strict = FALSE, fence_char = "`")
-  
-  # create the markdown file name - add a date at the beginning to Jekyll 
+  # create the markdown file name - add a date at the beginning to Jekyll
   # recognizes it as a post
   mdFile <- file.path(gitRepoPath, postsDir, paste0(add.date , sub(".Rmd$", "", current.file), ".md"))
-  
-  # knit Rmd to jekyll flavored md format
-  knit(current.file, 
-       output = mdFile, 
-       envir = parent.frame())
-  
+
+
   # COPY image directory, rmd file OVER to the GIT SITE###
   # only copy over if there are images for the lesson
   if (dir.exists(file.path(wd, fig.path))){
     # copy image directory over
     file.copy(file.path(wd, fig.path), file.path(gitRepoPath, imagePath), recursive=TRUE)
   }
-  
+
   # copy rmd file to the rmd directory on git
   # file.copy(paste0(wd, "/", basename(files)), gitRepoPath, recursive=TRUE)
-  
+
+
+
   ## OUTPUT STUFF TO R ##
   # output (purl) code in .R format
   rCodeOutput <- file.path(gitRepoPath, codeDir, paste0(sub(".Rmd$", "", basename(files)), ".R"))
-  
+
   # purl the code to R
   purl(files, output = rCodeOutput)
-  
+
   # CLEAN UP
   # remove Rmd file from data working directory
   unlink(basename(files))
-  
+
   # print when file is knit
   doneWith <- paste0("processed: ", files)
   print(doneWith)
-  
+
 }
 
 ###### Local image cleanup #####
 
-# recursively clean up working directory images dir  
+# recursively clean up working directory images dir
 unlink(file.path(wd, "images"), recursive = T)
 
 ########################### end script
